@@ -7,6 +7,8 @@
 
   --roboto: 'Roboto', sans-serif;
   --open-sans: 'Open Sans', sans-serif;
+
+  --shadow-small: 0px 3px 6px rgba(0, 0, 0, .03);
 }
 
 body {

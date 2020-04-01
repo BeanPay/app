@@ -7,7 +7,7 @@ function PrimaryNav({navItems}) {
     <nav className={styles.primaryNav}>
       <ul>
         {navItems.map(navItem => (
-          <li>
+          <li className={navItem.active ? styles.active : null} key={navItem.name}>
             <div className={styles.iconWrapper}>
               <FontAwesomeIcon icon={navItem.icon} />
             </div>
@@ -26,6 +26,7 @@ export default function BillPayNav() {
         {
           name: 'Home',
           icon: faHome,
+          active: true,
         },
         {
           name: 'Monthly Bills',
