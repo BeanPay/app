@@ -1,0 +1,10 @@
+.sidenav {
+  & .logo {
+    max-width: 230px;
+  }
+
+  & .navWrapper {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+}

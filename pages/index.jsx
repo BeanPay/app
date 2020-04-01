@@ -1,9 +1,7 @@
-import PrimaryNav from '../components/primary-nav'
+import Home from './home'
 
 export default function Index() {
   return (
-    <div className="g-wow">
-      <PrimaryNav />
-    </div>
+    <Home />
   );
 }

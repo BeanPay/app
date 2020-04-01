@@ -1,4 +1,4 @@
-.primaryNav {
+.navList {
   --transition-time: 200ms;
 
   & ul {
@@ -7,7 +7,7 @@
     margin: 0;
 
     & li {
-      width: 190px;
+      width: 240px;
       padding: 15px 24px;
       border-radius: 8px;
       transition: background var(--transition-time), box-shadow var(--transition-time);
