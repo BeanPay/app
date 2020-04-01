@@ -1,9 +1,8 @@
-import BillpaySidenav from '../../components/billpay-sidenav'
+import BasePageLayout from '../../layouts/base-page-layout'
 
-export default function Home() {
+export default function Settings() {
   return (
-    <div>
-      <BillpaySidenav activePage="settings" />
-    </div>
+    <BasePageLayout pageSlug="settings">
+    </BasePageLayout>
   );
 }

@@ -1,0 +1,13 @@
+.basePageLayout {
+  display: flex;
+  padding: 34px 24px;
+
+  & .basePageContent {
+    margin-left: 42px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 8px;
+    border-width: 2px;
+    border-style: dashed;
+  }
+}
