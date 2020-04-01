@@ -1,10 +1,9 @@
-import Button from '../components/button'
+import PrimaryNav from '../components/primary-nav'
 
 export default function Index() {
   return (
     <div className="g-wow">
-      <Button />
-      <p>Hello Next.js</p>
+      <PrimaryNav />
     </div>
   );
 }

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@900&display=swap');
+
+:root {
+  --gray-5: #A5ADC6;
+  --gray-2: #454545;
+  --gray-1: #F5F6F9;
+
+  --roboto: 'Roboto', sans-serif;
+  --open-sans: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: var(--gray-1);
+}
