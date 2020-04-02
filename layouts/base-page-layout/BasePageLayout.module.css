@@ -3,11 +3,11 @@
   padding: 34px 24px;
 
   & .basePageContent {
+    display: flex;
+    flex-wrap: wrap;
     margin-left: 42px;
     width: 100%;
     max-width: 1200px;
     margin-top: 8px;
-    border-width: 2px;
-    border-style: dashed;
   }
 }
