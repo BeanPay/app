@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import styles from './BillpayMonth.module.css'
 import SVG from 'react-inlinesvg'
-import TodayIcon from './today.svg'
 import CheckIcon from './check.svg'
 
 function ordinalSuffixOf(i) {
