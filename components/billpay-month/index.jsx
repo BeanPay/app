@@ -1,5 +1,8 @@
 import classNames from 'classnames'
 import styles from './BillpayMonth.module.css'
+import SVG from 'react-inlinesvg'
+import TodayIcon from './today.svg'
+import CheckIcon from './check.svg'
 
 function ordinalSuffixOf(i) {
   var j = i % 10, k = i % 100;
@@ -36,6 +39,7 @@ export default function BillpayMonth({month, year, bills}) {
       totalDue: 0,
       billStatus: 'no-bills',
       isPast: new Date(year, month - 1, i).getTime() < today,
+      isToday: new Date(year, month - 1, i).getTime() == today,
     })
   }
 
@@ -64,6 +68,7 @@ export default function BillpayMonth({month, year, bills}) {
       {days.map(day => (
         <div className={classNames({
           [styles.day]: true,
+          [styles.isToday]: day.isToday,
           [styles.isPast]: day.isPast,
           [styles.billDue]: day.billStatus === 'due'
         })}>
@@ -71,6 +76,9 @@ export default function BillpayMonth({month, year, bills}) {
           {day.totalDue > 0 ?
             <span className={styles.totalDue}>${day.totalDue}</span>
             : null}
+          <div className={styles.icons}>
+            {day.billStatus == 'paid' ?  <SVG src={CheckIcon} /> : null }
+          </div>
         </div>
       ))}
     </div>

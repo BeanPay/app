@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Check</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-502.000000, -276.000000)">
+            <g id="Check" transform="translate(503.000000, 277.000000)">
+                <rect id="Shape" stroke="#FFFFFF" fill="#2A9D8F" fill-rule="nonzero" x="0" y="0" width="13" height="13" rx="6.5"></rect>
+                <path d="M9.81038655,5.11632854 L6.20949375,8.80670507 C5.95586415,9.06498087 5.5030004,9.06388183 5.25023422,8.80670507 L3.18989842,6.70818671 C2.93670053,6.45035053 2.93670053,6.0335923 3.18989842,5.77575612 C3.42992916,5.53154811 3.86617208,5.53154811 4.10598696,5.77575612 L5.75166534,7.40761956 L8.89472972,4.18389795 C9.13432875,3.93903051 9.56949239,3.93837108 9.8106024,4.18389795 C10.0590515,4.43689833 10.067254,4.8547556 9.81038655,5.11632854 Z" id="Path" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -12,6 +12,24 @@ export default function Bills() {
           bills={[
             {
               name: 'Some bill',
+              dueDate: 1,
+              totalDue: 1000,
+              paid: false,
+            },
+            {
+              name: 'Some bill',
+              dueDate: 3,
+              totalDue: 1000,
+              paid: true,
+            },
+            {
+              name: 'Some bill',
+              dueDate: 18,
+              totalDue: 1000,
+              paid: true,
+            },
+            {
+              name: 'Some bill',
               dueDate: 22,
               totalDue: 1000,
               paid: false,
