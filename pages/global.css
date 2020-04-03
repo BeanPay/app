@@ -2,8 +2,9 @@
 
 :root {
   --gray-5: #A5ADC6;
+  --gray-4: #D4D4D4;
   --gray-2: #454545;
-  --gray-1: #F5F6F9;
+  --gray-1: #F9F9F9;
 
   --roboto: 'Roboto', sans-serif;
   --open-sans: 'Open Sans', sans-serif;
@@ -13,7 +14,7 @@
 }
 
 body {
-  background-color: var(--gray-1);
+  background-color: #F5F6F9;
 }
 
 h1,h2,h3,h4,h5,h6 {
