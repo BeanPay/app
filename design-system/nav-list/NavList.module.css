@@ -21,10 +21,10 @@
         background: white;
         box-shadow: var(--shadow-small);
         & path {
-          fill: var(--gray-2);
+          fill: var(--gray-1);
         }
         & span {
-          color: var(--gray-2);
+          color: var(--gray-1);
         }
       }
 
@@ -32,10 +32,10 @@
         background: white;
         box-shadow: var(--shadow-small);
         & path {
-          fill: var(--gray-2);
+          fill: var(--gray-1);
         }
         & span {
-          color: var(--gray-2);
+          color: var(--gray-1);
         }
       }
 
@@ -49,7 +49,7 @@
         font-size: 20px;
         & path {
           transition: fill var(--transition-time);
-          fill: var(--gray-5);
+          fill: var(--bluegray-3);
         }
       }
 
@@ -57,7 +57,7 @@
         font-family: var(--open-sans);
         font-weight: 700;
         font-size: 16px;
-        color: var(--gray-5);
+        color: var(--bluegray-3);
         transition: color var(--transition-time);
       }
     }

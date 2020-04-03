@@ -12,7 +12,7 @@
     width: var(--day-size);
     height: var(--day-size);
 
-    background: var(--gray-4);
+    background: var(--gray-6);
     border-radius: 3px;
 
     &:hover {
