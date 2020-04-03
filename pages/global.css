@@ -3,9 +3,12 @@
 :root {
   /* Colors */
   --gray-1: #454545;
+  --gray-5: #CDCDCD;
   --gray-6: #F9F9F9;
   --bluegray-3: #A5ADC6;
   --bluegray-6: #F5F6F9;
+  --orange: #E76F51;
+  --green: #2A9D8F;
 
   --roboto: 'Roboto', sans-serif;
   --open-sans: 'Open Sans', sans-serif;

@@ -1,5 +1,5 @@
 .billpayMonth {
-  --day-size: 52px;
+  --day-size: 58px;
   --day-gutter: 8px;
   display: flex;
   flex-wrap: wrap;
@@ -11,14 +11,56 @@
     margin-bottom: var(--day-gutter);
     width: var(--day-size);
     height: var(--day-size);
-
-    background: var(--gray-6);
+    background: var(--gray-5);
     border-radius: 3px;
+
+    &.offset {
+      visibility: hidden;
+    }
 
     &:hover {
       cursor: pointer;
       margin-top: -2px;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, .30);
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, .10);
+
+      & .date {
+        visibility: visible;
+      }
+    }
+
+    & span {
+      display: inline-block;
+      color: white;
+      width: 100%;
+      text-align: center;
+      font-family: var(--open-sans);
+      font-weight: 700;
+
+      &.date {
+        visibility: hidden;
+        font-size: 10px;
+        margin-bottom: 4px;
+      }
+      &.totalDue{
+        visibility: hidden;
+        font-size: 14px;
+      }
+    }
+
+    &.isPast {
+      background: var(--gray-6);
+    }
+
+    &.billDue {
+      background: var(--green);
+
+      &.isPast {
+        background: var(--orange);
+      }
+
+      & span {
+        visibility: visible;
+      }
     }
   }
 }

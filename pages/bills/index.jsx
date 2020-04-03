@@ -6,7 +6,24 @@ export default function Bills() {
   return (
     <BasePageLayout pageSlug="bills">
       <DashboardPanel title="Monthly Bills" minRowWeight={100}>
-        <BillpayMonth />
+        <BillpayMonth
+          month={4}
+          year={2020}
+          bills={[
+            {
+              name: 'Some bill',
+              dueDate: 22,
+              totalDue: 1000,
+              paid: false,
+            },
+            {
+              name: 'other bill',
+              dueDate: 24,
+              totalDue: 120,
+              paid: false,
+            }
+          ]}
+        />
       </DashboardPanel>
     </BasePageLayout>
   );
