@@ -1,0 +1,54 @@
+.billpayList {
+  display: inline-block;
+
+  & .billpayTable {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    & th {
+      text-transform: uppercase;
+      color: var(--bluegray-4);
+      font-family: var(--roboto);
+      font-size: 13px;
+      text-align: left;
+    }
+
+    & td {
+      font-family: var(--open-sans);
+      font-weight: 700;
+      color: var(--gray-1);
+      padding-top: 6px;
+      padding-bottom: 6px;
+
+      &:not(:last-child) {
+        padding-right: 24px;
+      }
+
+      &.name {
+        max-width: 200px;
+      }
+
+      &.totalDue {
+        width: 80px;
+        padding-right: 24px;
+        text-align: right;
+      }
+
+      &.dueDate {
+        width: 105px;
+        padding-right: 24px;
+      }
+
+      &.buttons {
+        width: 165px;
+        text-align: right;
+        & :not(:last-child) {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}

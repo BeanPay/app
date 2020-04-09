@@ -1,0 +1,44 @@
+.button {
+  color: white;
+  font-family: var(--open-sans);
+  font-weight: 700;
+  font-size: 13px;
+  text-shadow: var(--shadow-text);
+  border: none;
+  padding: 4px 10px;
+  text-align: center;
+  border-radius: 4px;
+
+  &:hover {
+    box-shadow: var(--shadow-hover);
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+  }
+
+  &:active{
+    box-shadow: none;
+    top: 0px;
+    padding-bottom: -1px;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.blue {
+    background-color: var(--blue);
+  }
+
+  &.yellow {
+    background-color: var(--yellow);
+  }
+
+  &.orange {
+    background-color: var(--orange);
+  }
+
+  &.green {
+    background-color: var(--green);
+  }
+}
