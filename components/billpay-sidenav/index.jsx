@@ -8,12 +8,6 @@ export default function BillPaySidenav({activePage}) {
       logo={BillpayLogo}
       navItems={[
         {
-          icon: faHome,
-          name: 'Home',
-          url: '/',
-          active: activePage === 'home'
-        },
-        {
           icon: faMoneyBill,
           name: 'Monthly Bills',
           url: '/bills',
