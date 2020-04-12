@@ -3,16 +3,22 @@
   --day-gutter: 8px;
   display: flex;
   flex-wrap: wrap;
-  width: calc(7 * (var(--day-size) + var(--day-gutter)));
+  width: calc(7 * (var(--day-size)) + (6 * var(--day-gutter)));
 
   & .day {
     position: relative;
     display: inline-block;
-    margin-right: var(--day-gutter);
-    margin-bottom: var(--day-gutter);
     width: var(--day-size);
     height: var(--day-size);
     background: var(--gray-5);
+
+    &:not(:nth-last-child(-n+7)) {
+      margin-bottom: var(--day-gutter);
+    }
+
+    &:not(:nth-child(7n)) {
+      margin-right: var(--day-gutter);
+    }
 
     border-radius: 3px;
     color: white;

@@ -1,14 +1,16 @@
 .billpayMonthPanel {
-  & .calendar {
-    @media (min-width: 1400px) {
-      margin-right: 32px;
-    }
-    @media (max-width: 1480px) {
-      margin-bottom: 32px;
-    }
-  }
+  /* Provide a 32px spacing between the Calendar & the List, regardless
+   * of their directionality. */
+  & > div:last-child {
+    margin: -16px;
 
-  & .list {
-    flex-grow: 1;
+    & .calendar {
+      margin: 16px;
+    }
+
+    & .list {
+      flex-grow: 1;
+      margin: 16px;
+    }
   }
 }
