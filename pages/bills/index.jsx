@@ -4,86 +4,50 @@ import BillpayMonth from '../../components/billpay-month'
 import BillpayList from '../../components/billpay-list'
 import BillpayMonthPanel from '../../components/billpay-month-panel'
 
-
 export default function Bills() {
   return (
     <BasePageLayout pageSlug="bills">
       <BillpayMonthPanel
-        month={3}
+        month={4}
         year={2020}
         bills={[
           {
-            name: 'Some bill',
+            name: 'Rent',
+            billpayURL: 'https://www.rentpayment.com/pay/login.html',
             dueDate: 1,
-            totalDue: 1000,
-            paid: false,
-          },
-          {
-            name: 'Some bill',
-            dueDate: 3,
-            totalDue: 1000,
+            totalDue: 1050,
             paid: true,
           },
           {
-            name: 'Some bill',
-            dueDate: 18,
-            totalDue: 1000,
-            paid: true,
-          },
-          {
-            name: 'Some bill',
-            dueDate: 22,
-            totalDue: 1000,
+            name: 'Waste Management',
+            billpayURL: 'https://www.wm.com/us/en/mywm/my-payment/verify',
+            dueDate: 5,
+            totalDue: 24,
             paid: false,
           },
           {
-            name: 'other bill',
-            dueDate: 24,
-            totalDue: 120,
+            name: 'PSE&G',
+            billpayURL: 'https://nj.pseg.com/',
+            dueDate: 15,
+            totalDue: 130,
             paid: false,
-          }
+          },
+          {
+            name: 'Chase Sapphire',
+            billpayURL: 'https://nj.pseg.com/',
+            dueDate: 23,
+            totalDue: 421,
+            paid: false,
+          },
+          {
+            name: 'Water Bill',
+            billpayURL: 'https://wss.amwater.com/selfservice-web/login.do',
+            dueDate: 27,
+            totalDue: 37,
+            paid: false,
+          },
         ]}
       />
-
-      <DashboardPanel title="April Bills" minRowWeight={50}>
-        <BillpayMonth
-          month={4}
-          year={2020}
-          bills={[
-            {
-              name: 'Some bill',
-              dueDate: 1,
-              totalDue: 1000,
-              paid: false,
-            },
-            {
-              name: 'Some bill',
-              dueDate: 3,
-              totalDue: 1000,
-              paid: true,
-            },
-            {
-              name: 'Some bill',
-              dueDate: 18,
-              totalDue: 1000,
-              paid: true,
-            },
-            {
-              name: 'Some bill',
-              dueDate: 22,
-              totalDue: 1000,
-              paid: false,
-            },
-            {
-              name: 'other bill',
-              dueDate: 24,
-              totalDue: 120,
-              paid: false,
-            }
-          ]}
-        />
-        <BillpayList />
-      </DashboardPanel>
     </BasePageLayout>
   );
 }

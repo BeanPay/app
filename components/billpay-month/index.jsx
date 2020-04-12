@@ -2,20 +2,7 @@ import classNames from 'classnames'
 import styles from './BillpayMonth.module.css'
 import SVG from 'react-inlinesvg'
 import CheckIcon from './check.svg'
-
-function ordinalSuffixOf(i) {
-  var j = i % 10, k = i % 100;
-  if (j == 1 && k != 11) {
-    return i + "st";
-  }
-  if (j == 2 && k != 12) {
-    return i + "nd";
-  }
-  if (j == 3 && k != 13) {
-    return i + "rd";
-  }
-  return i + "th";
-}
+import withOrdinalSuffix from '../../util/with-ordinal-suffix'
 
 export default function BillpayMonth({month, year, bills}) {
   // Determines the number of days to offset the first week to
@@ -34,7 +21,7 @@ export default function BillpayMonth({month, year, bills}) {
   var days = [];
   for(var i = 1; i <= numDaysInMonth; i++) {
     days.push({
-      date: ordinalSuffixOf(i),
+      date: withOrdinalSuffix(i),
       totalDue: 0,
       billStatus: 'no-bills',
       isPast: new Date(year, month - 1, i).getTime() < today,

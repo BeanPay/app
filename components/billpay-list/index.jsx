@@ -1,60 +1,56 @@
 import styles from './BillpayList.module.css'
 import Button from '../../design-system/button'
+import withOrdinalSuffix from '../../util/with-ordinal-suffix'
 
-export default function BillpayList() {
+export default function BillpayList({bills}) {
+  const today = new Date().getDate();
+  const overdueBills = bills.filter(bill => !bill.paid && bill.dueDate < today);
+  const upcomingBills = bills.filter(bill => !bill.paid && bill.dueDate >= today);
+  const paidBills = bills.filter(bill => bill.paid);
   return (
     <div className={styles.billpayList}>
-      <TabulatedBillList
-        header="Overdue"
-        items={[
-          {
-            name: "PSE&G",
-            totalDue: "$130",
-            dueDate: "Mar 15th",
-            billpayURL: "https://nj.pseg.com/"
-          },
-          {
-            name: "Chase Sapphire",
-            totalDue: "$421",
-            dueDate: "Mar 23rd",
-            billpayURL: "https://www.chase.com/"
-          }
-        ]}
-      />
-      <TabulatedBillList
-        header="Upcoming"
-        items={[
-          {
-            name: "Rent",
-            totalDue: "$1050",
-            dueDate: "Mar 31st",
-            billpayURL: "https://www.rentpayment.com/pay/login.html"
-          }
-        ]}
-      />
+      {overdueBills.length > 0 && (
+        <TabulatedBillList header="Overdue" bills={overdueBills} />
+      )}
+      {upcomingBills.length > 0 && (
+        <TabulatedBillList header="Upcoming" bills={upcomingBills} />
+      )}
+      {paidBills.length > 0 && (
+        <TabulatedBillList header="Paid" bills={paidBills} />
+      )}
     </div>
   )
 }
 
-function TabulatedBillList({header, items}) {
+function TabulatedBillList({header, bills}) {
   return (
     <table className={styles.billpayTable}>
-      <tr>
-        <th>{header}</th>
-      </tr>
-      {items.map(item => (
+      <thead>
         <tr>
-          <td className={styles.name}>{item.name}</td>
-          <td className={styles.totalDue}>{item.totalDue}</td>
-          <td className={styles.dueDate}>{item.dueDate}</td>
-          <td className={styles.buttons}>
-            <Button color="yellow" text="Pay Bill" onClick={() => {
-              window.open(item.billpayURL, "_blank");
-            }}/>
-            <Button color="green" text="Mark Paid" />
-          </td>
+          <th>{header}</th>
         </tr>
-      ))}
+      </thead>
+      <tbody>
+        {bills.map(bill => (
+          <tr key={bill.name}>
+            <td className={styles.name}>{bill.name}</td>
+            <td className={styles.totalDue}>{`$${bill.totalDue}`}</td>
+            <td className={styles.dueDate}>{withOrdinalSuffix(bill.dueDate)}</td>
+            <td className={styles.buttons}>
+              {bill.paid ? (
+                <Button color="orange" text="Mark Unpaid" />
+              ) : (
+                <>
+                  <Button color="yellow" text="Pay Bill" onClick={() => {
+                    window.open(bill.billpayURL, "_blank");
+                  }}/>
+                  <Button color="green" text="Mark Paid" />
+                </>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   )
 }
