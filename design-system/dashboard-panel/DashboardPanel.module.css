@@ -35,6 +35,7 @@
 
   & > .content {
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
     padding: 32px 0px;
   }

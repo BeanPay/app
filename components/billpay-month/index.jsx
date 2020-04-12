@@ -4,7 +4,7 @@ import SVG from 'react-inlinesvg'
 import CheckIcon from './check.svg'
 import withOrdinalSuffix from '../../util/with-ordinal-suffix'
 
-export default function BillpayMonth({month, year, bills}) {
+export default function BillpayMonth({className, month, year, bills}) {
   // Determines the number of days to offset the first week to
   // ensure the 7 day week aligns with the proper days.
   const firstWeekOffset = new Date(year + "-" + month + "-01").getDay();
@@ -44,7 +44,7 @@ export default function BillpayMonth({month, year, bills}) {
   }
 
   return (
-    <div className={styles.billpayMonth}>
+    <div className={classNames(styles.billpayMonth, className)}>
       {/* Plant all of the offset divs */}
       {Array(firstWeekOffset).fill().map(()=>(
         <div className={classNames(styles.day, styles.offset)} />

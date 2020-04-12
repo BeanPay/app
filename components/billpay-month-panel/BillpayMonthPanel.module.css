@@ -1,0 +1,14 @@
+.billpayMonthPanel {
+  & .calendar {
+    @media (min-width: 1400px) {
+      margin-right: 32px;
+    }
+    @media (max-width: 1480px) {
+      margin-bottom: 32px;
+    }
+  }
+
+  & .list {
+    flex-grow: 1;
+  }
+}

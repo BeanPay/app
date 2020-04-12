@@ -1,14 +1,15 @@
+import classNames from 'classnames'
 import styles from './BillpayList.module.css'
 import Button from '../../design-system/button'
 import withOrdinalSuffix from '../../util/with-ordinal-suffix'
 
-export default function BillpayList({bills}) {
+export default function BillpayList({className, bills}) {
   const today = new Date().getDate();
   const overdueBills = bills.filter(bill => !bill.paid && bill.dueDate < today);
   const upcomingBills = bills.filter(bill => !bill.paid && bill.dueDate >= today);
   const paidBills = bills.filter(bill => bill.paid);
   return (
-    <div className={styles.billpayList}>
+    <div className={classNames(styles.billpayList, className)}>
       {overdueBills.length > 0 && (
         <TabulatedBillList header="Overdue" bills={overdueBills} />
       )}
