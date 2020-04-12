@@ -1,7 +1,4 @@
 import BasePageLayout from '../../layouts/base-page-layout'
-import DashboardPanel from '../../design-system/dashboard-panel'
-import BillpayMonth from '../../components/billpay-month'
-import BillpayList from '../../components/billpay-list'
 import BillpayMonthPanel from '../../components/billpay-month-panel'
 
 export default function Bills() {
