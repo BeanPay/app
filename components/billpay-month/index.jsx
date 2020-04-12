@@ -46,13 +46,13 @@ export default function BillpayMonth({className, month, year, bills}) {
   return (
     <div className={classNames(styles.billpayMonth, className)}>
       {/* Plant all of the offset divs */}
-      {Array(firstWeekOffset).fill().map(()=>(
-        <div className={classNames(styles.day, styles.offset)} />
+      {Array(firstWeekOffset).fill().map((k,v)=>(
+        <div key={month+v} className={classNames(styles.day, styles.offset)} />
       ))}
 
       {/* Place all of the proper days */}
       {days.map(day => (
-        <div className={classNames({
+        <div key={month+day.date} className={classNames({
           [styles.day]: true,
           [styles.isToday]: day.isToday,
           [styles.isPast]: day.isPast,
