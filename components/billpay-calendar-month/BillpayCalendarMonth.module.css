@@ -5,12 +5,9 @@
   flex-wrap: wrap;
   width: calc(7 * (var(--day-size)) + (6 * var(--day-gutter)));
 
-  & .day {
-    position: relative;
-    display: inline-block;
+  & > div {
     width: var(--day-size);
     height: var(--day-size);
-    background: var(--gray-5);
 
     &:not(:nth-last-child(-n+7)) {
       margin-bottom: var(--day-gutter);
@@ -18,92 +15,6 @@
 
     &:not(:nth-child(7n)) {
       margin-right: var(--day-gutter);
-    }
-
-    border-radius: 3px;
-    color: white;
-
-    &.offset {
-      visibility: hidden;
-    }
-
-    &:hover {
-      cursor: pointer;
-      margin-top: -2px;
-      box-shadow: var(--shadow-hover);
-
-      & .date {
-        visibility: visible;
-      }
-    }
-
-    & span {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      font-family: var(--open-sans);
-      font-weight: 700;
-      text-shadow: var(--shadow-text);
-
-      &.date {
-        margin-top: 3px;
-        visibility: hidden;
-        font-size: 11px;
-        margin-bottom: 4px;
-      }
-      &.totalDue{
-        visibility: hidden;
-        font-size: 15px;
-      }
-    }
-
-    &.isToday {
-      & span {
-        &.date {
-          visibility: visible;
-          background: #2A5D9D;
-          border: 1px solid white;
-          border-radius: 12px;
-          margin-left: auto;
-          margin-right: auto;
-          display: block;
-          width: 42px;
-
-        }
-      }
-    }
-
-    & .icons {
-      position: absolute;
-      bottom: 0px;
-      padding: 3px;
-      width: 100%;
-
-      & svg {
-        float: right;
-        display: block;
-        height: 16px;
-      }
-    }
-
-    &.isPast {
-      background: var(--gray-6);
-
-      &:not(.billDue) {
-        color: var(--gray-1);
-      }
-    }
-
-    &.billDue {
-      background: var(--green);
-
-      &.isPast {
-        background: var(--orange);
-      }
-
-      & span {
-        visibility: visible;
-      }
     }
   }
 }

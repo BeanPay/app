@@ -3,6 +3,8 @@ import DashboardPanel from '../../design-system/dashboard-panel'
 import BillpayCalendarMonth from '../billpay-calendar-month'
 import BillpayList from '../billpay-list'
 
+import BillpayCalendarDay from '../billpay-calendar-day'
+
 export default function BillpayMonthPanel({month, year, bills}) {
   const monthName = new Date(year, month-1, 1).toLocaleString('default', { month: 'long' });
   return (
