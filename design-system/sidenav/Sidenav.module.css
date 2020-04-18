@@ -2,7 +2,7 @@
   display: inline-block;
 
   & .logo {
-    max-width: 230px;
+    max-width: 200px;
   }
 
   & .navWrapper {
