@@ -10,4 +10,13 @@
     max-width: 1200px;
     margin-top: 8px;
   }
+
+  @media (max-width: 900px) {
+    display: block;
+
+    & .basePageContent {
+      margin-top: 28px;
+      margin-left: 0px;
+    }
+  }
 }
