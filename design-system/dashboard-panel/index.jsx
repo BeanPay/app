@@ -1,7 +1,8 @@
 import classNames from 'classnames'
+import Panel from '../panel'
 import styles from './DashboardPanel.module.css'
 
-export default function DashboardPanel({className, title, children, minRowWeight}) {
+export default function DashboardPanel({className, title, description, children, minRowWeight}) {
   var minRowWeightClass = styles.fullWidth;
   switch (minRowWeight) {
     case 100:
@@ -18,13 +19,16 @@ export default function DashboardPanel({className, title, children, minRowWeight
       break;
   }
   return (
-    <div className={classNames(styles.dashboardPanel, className, minRowWeightClass)}>
-      <div className={styles.header}>
-        <h3>{title}</h3>
-      </div>
-      <div className={styles.content}>
-        {children}
-      </div>
-    </div>
+    <Panel
+      className={classNames(
+        styles.dashboardPanel,
+        className,
+        minRowWeightClass
+      )}
+      title={title}
+      description={description}
+    >
+      {children}
+    </Panel>
   )
 }
