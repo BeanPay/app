@@ -2,12 +2,20 @@
   color: white;
   font-family: var(--open-sans);
   font-weight: 700;
-  font-size: 13px;
   text-shadow: var(--shadow-text);
   border: none;
-  padding: 4px 10px;
   text-align: center;
   border-radius: 4px;
+
+  &.sizeSmall {
+    font-size: 13px;
+    padding: 4px 10px;
+  }
+
+  &.sizeLarge {
+    font-size: 16px;
+    padding: 17px 24px;
+  }
 
   &:hover {
     box-shadow: var(--shadow-hover);
