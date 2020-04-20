@@ -7,11 +7,11 @@
   & > .header {
     padding-top: 24px;
     & > h3 {
-      margin-top: 0px;
-      margin-bottom: 8px;
+      margin: 0;
     }
     & > p {
-      margin: 0px;
+      margin-top: 7px;
+      margin-bottom: 0px;
     }
   }
 

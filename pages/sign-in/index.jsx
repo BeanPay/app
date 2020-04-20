@@ -2,21 +2,23 @@ import LoginContainer from '../../components/login-container'
 import Button from '../../design-system/button'
 import { Formik, Field, Form } from "formik";
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function SignUp() {
+  const router = useRouter()
   return (
     <LoginContainer
-      title="Sign up"
-      description="Never miss a bill again."
+      title="Welcome back"
+      description="Sign in to continue."
       footnote={(
-        <p>Already have an account? <Link href="/sign-in"><a>Sign in</a></Link></p>
+        <p>Don&apos;t have an account? <Link href="/sign-up"><a>Sign up</a></Link></p>
       )}
     >
       <Formik
-        initialValues={{ email: "", password: "", passwordConfirm: "" }}
+        initialValues={{ email: "", password: "" }}
         onSubmit={async values => {
           await new Promise(resolve => setTimeout(resolve, 500));
-          alert(JSON.stringify(values, null, 2));
+          router.push("/bills")
         }}
       >
         <Form>
@@ -24,9 +26,7 @@ export default function SignUp() {
           <Field id="email" name="email" type="email" />
           <label htmlFor="password">Password</label>
           <Field id="password" name="password" type="password" />
-          <label htmlFor="passwordConfirm">Confirm Password</label>
-          <Field id="passwordConfirm" name="passwordConfirm" type="password" />
-          <Button type="submit" size="large" text="Create Account" color="green"/>
+          <Button type="submit" size="large" text="Sign in" color="green"/>
         </Form>
       </Formik>
     </LoginContainer>
