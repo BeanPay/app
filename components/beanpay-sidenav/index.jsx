@@ -1,12 +1,11 @@
 import Sidenav from '../../design-system/sidenav'
-import HorizontalLockup from './horizontal-lockup.svg'
 import { faMoneyBill, faCog } from '@fortawesome/free-solid-svg-icons'
 
-export default function BillPaySidenav({activePath}) {
+export default function BeanPaySidenav({activePath}) {
   return (
     <Sidenav
       activePath={activePath}
-      logo={HorizontalLockup}
+      logo="/logos/horizontal-lockup.svg"
       navItems={[
         {
           icon: faMoneyBill,
