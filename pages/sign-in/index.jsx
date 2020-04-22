@@ -20,7 +20,7 @@ export default function SignUp() {
           initialValues={{ email: "", password: "" }}
           onSubmit={async values => {
             await new Promise(resolve => setTimeout(resolve, 500));
-            router.push("/bills")
+            router.push("/")
           }}
         >
           <Form>

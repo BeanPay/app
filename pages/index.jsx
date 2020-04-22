@@ -1,5 +1,5 @@
-import DashboardLayout from '../../layouts/dashboard-layout'
-import BillpayMonthPanel from '../../components/billpay-month-panel'
+import DashboardLayout from '../layouts/dashboard-layout'
+import BillpayMonthPanel from '../components/billpay-month-panel'
 
 export default function Bills() {
   return (
