@@ -1,8 +1,8 @@
-.basePageLayout {
+.dashboardLayout {
   display: flex;
   padding: 34px 24px;
 
-  & .basePageContent {
+  & .content {
     display: flex;
     flex-wrap: wrap;
     margin-left: 42px;
@@ -14,7 +14,7 @@
   @media (max-width: 900px) {
     display: block;
 
-    & .basePageContent {
+    & .content {
       margin-top: 28px;
       margin-left: 0px;
     }

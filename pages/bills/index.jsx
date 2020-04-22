@@ -1,9 +1,9 @@
-import BasePageLayout from '../../layouts/base-page-layout'
+import DashboardLayout from '../../layouts/dashboard-layout'
 import BillpayMonthPanel from '../../components/billpay-month-panel'
 
 export default function Bills() {
   return (
-    <BasePageLayout pageSlug="bills">
+    <DashboardLayout pageTitle="Bills">
       <BillpayMonthPanel
         month={4}
         year={2020}
@@ -45,6 +45,6 @@ export default function Bills() {
           },
         ]}
       />
-    </BasePageLayout>
+    </DashboardLayout>
   );
 }
