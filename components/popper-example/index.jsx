@@ -12,7 +12,7 @@ export default function Example() {
   return (
     <>
       <button type="button" ref={setReferenceElement}>
-        Reference element
+        April 23rd
       </button>
 
       <PopupPanel

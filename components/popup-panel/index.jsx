@@ -9,7 +9,7 @@ function PopupPanel({title, onClose, style, popperAttributes, children}, popperR
   // that was passed into this PopupPanel.
   const popupPanelRef = useRef(null);
   const handleClick = (event) => {
-    if (!popupPanelRef.current.contains(event.target)) {
+    if (popupPanelRef.current && !popupPanelRef.current.contains(event.target)) {
       onClose();
     }
   }
