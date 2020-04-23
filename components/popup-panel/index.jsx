@@ -15,6 +15,9 @@ function PopupPanel({title, onClose, style, popperAttributes, children}, popperR
   }
   useEffect(() => {
     document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick)
+    }
   }, [])
 
   // Render
