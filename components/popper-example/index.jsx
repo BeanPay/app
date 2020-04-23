@@ -15,7 +15,17 @@ export default function Example() {
         Reference element
       </button>
 
-      <PopupPanel ref={setPopperElement} style={styles.popper} popperAttributes={attributes.popper} />
+      <PopupPanel
+        title="April 23rd"
+        ref={setPopperElement}
+        style={styles.popper}
+        popperAttributes={attributes.popper}
+        onClose={() => {
+          console.log("close attempted!");
+        }}
+      >
+        <p>Hello world :)</p>
+      </PopupPanel>
     </>
   );
 };
