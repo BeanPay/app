@@ -1,9 +1,9 @@
 .popupPanel {
   background: white;
   min-width: 300px;
-  padding: 0 14px;
+  padding: 0 16px;
   box-shadow: 3px 3px 16px rgba(0, 0, 0, .20);
-  border-radius: 3px;
+  border-radius: 4px;
 
   & .header {
     padding-top: 12px;
@@ -30,6 +30,6 @@
   }
 
   & .content {
-    padding: 12px 0;
+    padding: 14px 0;
   }
 }

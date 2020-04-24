@@ -1,52 +1,68 @@
 .billpayList {
-  display: inline-block;
+  width: 275px;
 
-  & .billpayTable {
-    width: 100%;
+  & .billCategoryList {
 
     &:not(:last-child) {
-      margin-bottom: 24px;
+      margin-bottom: 10px;
     }
 
-    & th {
+    & h5 {
       text-transform: uppercase;
       color: var(--bluegray-4);
       font-family: var(--roboto);
       font-size: 13px;
       text-align: left;
+      margin-top: 0px;
+      margin-bottom: 6px;
     }
 
-    & td {
-      font-family: var(--open-sans);
-      font-weight: 700;
-      color: var(--gray-1);
-      padding-top: 6px;
-      padding-bottom: 6px;
+    & ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
 
-      &:not(:last-child) {
-        padding-right: 24px;
+      &.overdue {
+        & li {
+          background: var(--orange);
+        }
       }
 
-      &.name {
-        max-width: 200px;
+      &.unpaid {
+        & li {
+          background: var(--green);
+        }
       }
 
-      &.totalDue {
-        width: 80px;
-        padding-right: 24px;
-        text-align: right;
+      &.paid {
+        & li {
+          background: #AABBCC;
+          background: var(--gray-5);
+        }
       }
 
-      &.dueDate {
-        width: 70px;
-        padding-right: 24px;
-      }
+      & li {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 14px;
+        border-radius: 3px;
 
-      &.buttons {
-        width: 165px;
-        text-align: right;
-        & :not(:last-child) {
-          margin-right: 8px;
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+
+        &:hover {
+          box-shadow: var(--shadow-hover);
+          cursor: pointer;
+          position: relative;
+          top: -1px;
+        }
+
+        & p {
+          font-size: 14px;
+          font-weight: 700;
+          margin: 0;
+          color: white;
         }
       }
     }
