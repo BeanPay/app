@@ -3,18 +3,12 @@
   --day-gutter: 8px;
   display: flex;
   flex-wrap: wrap;
-  width: calc(7 * (var(--day-size)) + (6 * var(--day-gutter)));
+  width: calc(7 * (var(--day-size)) + (7 * var(--day-gutter)));
+  margin: calc(-1/2 * var(--day-gutter));
 
   & > div {
     width: var(--day-size);
     height: var(--day-size);
-
-    &:not(:nth-last-child(-n+7)) {
-      margin-bottom: var(--day-gutter);
-    }
-
-    &:not(:nth-child(7n)) {
-      margin-right: var(--day-gutter);
-    }
+    margin: calc(1/2 * var(--day-gutter));
   }
 }
