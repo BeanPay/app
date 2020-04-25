@@ -2,7 +2,11 @@ import classNames from 'classnames'
 import withOrdinalSuffix from '../../util/with-ordinal-suffix'
 import CheckIcon from './check.svg'
 import SVG from 'react-inlinesvg'
-import styles from './BillpayCalendarDay.module.css'
+import dayStyles from './BillpayCalendarDay.module.css'
+import BillpayList from '../billpay-list'
+import PopupPanel from '../popup-panel'
+import { usePopper } from 'react-popper';
+import React, { useState } from 'react';
 
 export default function BillpayCalendarDay({month, year, day, bills}) {
   // Determine the dates relative reference to todays actual date
@@ -29,23 +33,79 @@ export default function BillpayCalendarDay({month, year, day, bills}) {
     }
   }
 
+  // Popper Config for Modal
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [referenceElement, setReferenceElement] = React.useState(null);
+  const [popperElement, setPopperElement] = React.useState(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: 'auto',
+  });
+
+  // Render
   return (
-    <div className={classNames(
-      styles.billpayCalendarDay,
-      {
-        [styles.offset]: isOffset,
-        [styles.isToday]: isToday,
-        [styles.isPast]: isPast,
-        [styles.billDue]: billStatus === 'due'
-      }
-    )}>
-      <span className={styles.date}>{withOrdinalSuffix(day)}</span>
-      {totalDue > 0 ?
-        <span className={styles.totalDue}>${totalDue}</span>
-        : null}
-      <div className={styles.icons}>
-        {billStatus == 'paid' ?  <SVG src={CheckIcon} /> : null }
+    <>
+      <div
+        ref={setReferenceElement}
+        onClick={() => {
+          setPopupOpen(!popupOpen);
+        }}
+        className={classNames(
+          dayStyles.billpayCalendarDay,
+          {
+            [dayStyles.offset]: isOffset,
+            [dayStyles.isToday]: isToday,
+            [dayStyles.isPast]: isPast,
+            [dayStyles.billDue]: billStatus === 'due'
+          }
+        )}
+      >
+        <span className={dayStyles.date}>{withOrdinalSuffix(day)}</span>
+        {totalDue > 0 ?
+          <span className={dayStyles.totalDue}>${totalDue}</span>
+          : null}
+        <div className={dayStyles.icons}>
+          {billStatus == 'paid' ?  <SVG src={CheckIcon} /> : null }
+        </div>
       </div>
-    </div>
+
+      { popupOpen && (
+        <PopupPanel
+          title="April 23rd"
+          ref={setPopperElement}
+          style={styles.popper}
+          popperAttributes={attributes.popper}
+          onClose={() => {
+            setPopupOpen(false);
+          }}
+        >
+          <BillpayList
+            isPast={true}
+            bills={[
+              {
+                name: 'Rent',
+                billpayURL: 'https://www.rentpayment.com/pay/login.html',
+                dueDate: 1,
+                totalDue: 1050,
+                paid: true,
+              },
+              {
+                name: 'Waste Management',
+                billpayURL: 'https://www.wm.com/us/en/mywm/my-payment/verify',
+                dueDate: 5,
+                totalDue: 24,
+                paid: false,
+              },
+              {
+                name: 'PSE&G',
+                billpayURL: 'https://nj.pseg.com/',
+                dueDate: 15,
+                totalDue: 130,
+                paid: false,
+              },
+            ]}
+          />
+        </PopupPanel>
+      )}
+    </>
   )
 }

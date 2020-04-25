@@ -1,35 +1,42 @@
-.popupPanel {
-  background: white;
-  min-width: 300px;
-  padding: 0 16px;
-  box-shadow: 3px 3px 16px rgba(0, 0, 0, .20);
-  border-radius: 4px;
+dialog.popperPopup {
+  z-index: 1;
+  display: block;
+  border: none;
+  padding: 0;
 
-  & .header {
-    padding-top: 12px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+  & .popupPanel {
+    background: white;
+    min-width: 300px;
+    padding: 0 16px;
+    box-shadow: 3px 3px 16px rgba(0, 0, 0, .20);
+    border-radius: 4px;
 
-    & .close {
-      & svg {
-        height: 24px;
-        width: 24px;
-        color: var(--gray-3);
+    & .header {
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+
+      & .close {
+        & svg {
+          height: 24px;
+          width: 24px;
+          color: var(--gray-3);
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
-      &:hover {
-        cursor: pointer;
+      & h4 {
+        margin: 0;
       }
     }
 
-    & h4 {
-      margin: 0;
+    & .content {
+      padding: 14px 0;
     }
-  }
-
-  & .content {
-    padding: 14px 0;
   }
 }

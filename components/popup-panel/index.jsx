@@ -22,7 +22,7 @@ function PopupPanel({title, onClose, style, popperAttributes, children}, popperR
 
   // Render
   return (
-    <div {...popperAttributes} style={style} ref={popperRef}>
+    <dialog className={styles.popperPopup} {...popperAttributes} style={style} ref={popperRef}>
       <div ref={popupPanelRef} className={styles.popupPanel}>
         <div className={styles.header}>
           <h4>{title}</h4>
@@ -37,7 +37,7 @@ function PopupPanel({title, onClose, style, popperAttributes, children}, popperR
           {children}
         </div>
       </div>
-    </div>
+    </dialog>
   )
 }
 
