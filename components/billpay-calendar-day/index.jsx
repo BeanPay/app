@@ -1,12 +1,12 @@
 import { usePopper } from 'react-popper';
 import React, { useState } from 'react';
-import classNames from 'classnames'
-import SVG from 'react-inlinesvg'
-import withOrdinalSuffix from '../../util/with-ordinal-suffix'
-import CheckIcon from './check.svg'
-import dayStyles from './BillpayCalendarDay.module.css'
-import BillpayList from '../billpay-list'
-import PopupPanel from '../popup-panel'
+import classNames from 'classnames';
+import SVG from 'react-inlinesvg';
+import withOrdinalSuffix from '../../util/with-ordinal-suffix';
+import CheckIcon from './check.svg';
+import dayStyles from './BillpayCalendarDay.module.css';
+import BillpayList from '../billpay-list';
+import PopupPanel from '../popup-panel';
 
 export default function BillpayCalendarDay({month, year, day, bills}) {
   // Determine the dates relative reference to todays actual date
