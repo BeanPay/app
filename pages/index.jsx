@@ -2,8 +2,6 @@ import DashboardLayout from '../layouts/dashboard-layout'
 import BillpayMonthPanel from '../components/billpay-month-panel'
 import DashboardPanel from '../design-system/dashboard-panel'
 
-import PopperExample from '../components/popper-example'
-
 export default function Bills() {
   return (
     <DashboardLayout pageTitle="Bills">
@@ -89,11 +87,6 @@ export default function Bills() {
           },
         ]}
       />
-
-      <DashboardPanel title="Popper Demo">
-        <PopperExample />
-      </DashboardPanel>
-
     </DashboardLayout>
   );
 }
