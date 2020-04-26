@@ -1,4 +1,4 @@
-.billpayCalendarMonth {
+.calendarMonth {
   --day-size: 62px;
   --day-gutter: 8px;
   display: flex;
