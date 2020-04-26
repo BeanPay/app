@@ -1,5 +1,5 @@
 import styles from './Sidenav.module.css'
-import NavList from '../nav-list'
+import NavList from './nav-list'
 import SVG from 'react-inlinesvg'
 
 export default function Sidenav({logo, navItems, activePath}) {
