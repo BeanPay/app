@@ -1,6 +1,5 @@
 .billList {
-  width: 275px;
-
+  width: 100%;
   & .billListCategory {
 
     &:not(:last-child) {

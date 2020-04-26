@@ -5,7 +5,7 @@ import SVG from 'react-inlinesvg';
 import withOrdinalSuffix from '../../../util/with-ordinal-suffix';
 import CheckIcon from './check.svg';
 import dayStyles from './CalendarDay.module.css';
-import BillList from '../../bill-list';
+import BillList from '../bill-list';
 import PopupPanel from '../../../design-system/popup-panel';
 
 export default function CalendarDay({month, year, day, bills}) {
