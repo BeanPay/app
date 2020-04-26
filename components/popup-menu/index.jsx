@@ -3,7 +3,11 @@ import styles from './PopupMenu.module.css';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// https://material.io/components/menus
+/**
+ * The intended behavior of component is almost identical
+ * to Menus as documented in Google's Material Design.
+ * https://material.io/components/menus
+ */
 export default function PopupMenu({ className, items, onClose }) {
   const popupMenuRef = useRef(null);
   const handleClick = (event) => {
