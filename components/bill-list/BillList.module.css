@@ -22,53 +22,9 @@
       margin: 0;
       padding: 0;
 
-      &.overdue {
-        & > li {
-          background: var(--orange);
-        }
-      }
-
-      &.unpaid {
-        & > li {
-          background: var(--green);
-        }
-      }
-
-      &.paid {
-        & > li {
-          background: #AABBCC;
-          background: var(--gray-5);
-        }
-      }
-
-      & > li {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 14px;
-        border-radius: 3px;
-
+      & > * {
         &:not(:last-child) {
           margin-bottom: 8px;
-        }
-
-        &:hover,
-        &.active {
-          box-shadow: var(--shadow-hover);
-          cursor: pointer;
-          position: relative;
-          top: -1px;
-        }
-
-        & p {
-          font-size: 14px;
-          font-weight: 700;
-          margin: 0;
-          color: white;
-        }
-
-        & > .popupMenu {
-          position: absolute;
-          right: -100px;
         }
       }
     }

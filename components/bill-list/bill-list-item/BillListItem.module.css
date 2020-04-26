@@ -1,0 +1,38 @@
+li.billListItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 3px;
+
+  &.overdue {
+    background: var(--orange);
+  }
+
+  &.unpaid {
+    background: var(--green);
+  }
+
+  &.paid {
+    background: var(--gray-5);
+  }
+
+  &:hover,
+  &.active {
+    box-shadow: var(--shadow-hover);
+    cursor: pointer;
+    position: relative;
+    top: -1px;
+  }
+
+  & p {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+  }
+
+  & > .popupMenu {
+    position: absolute;
+    right: -100px;
+  }
+}
