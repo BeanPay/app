@@ -1,6 +1,6 @@
 import styles from './CalendarMonthPanel.module.css'
 import DashboardPanel from '../../design-system/dashboard-panel'
-import CalendarMonth from '../calendar-month'
+import CalendarMonth from './calendar-month'
 
 export default function CalendarMonthPanel({month, year, bills}) {
   const monthName = new Date(year, month-1, 1).toLocaleString('default', { month: 'long' });

@@ -2,11 +2,11 @@ import { usePopper } from 'react-popper';
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import SVG from 'react-inlinesvg';
-import withOrdinalSuffix from '../../../util/with-ordinal-suffix';
+import withOrdinalSuffix from '../../../../util/with-ordinal-suffix';
 import CheckIcon from './check.svg';
 import dayStyles from './CalendarDay.module.css';
 import BillList from '../bill-list';
-import PopupPanel from '../../../design-system/popup-panel';
+import PopupPanel from '../../../../design-system/popup-panel';
 
 export default function CalendarDay({month, year, day, bills}) {
   // Determine the dates relative reference to todays actual date
