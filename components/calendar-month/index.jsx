@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import styles from './CalendarMonth.module.css'
-import CalendarDay from '../calendar-day'
+import CalendarDay from './calendar-day'
 
 export default function CalendarMonth({className, month, year, bills}) {
   const firstWeekOffset = new Date(year + "-" + month + "-01").getDay();
