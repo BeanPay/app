@@ -5,8 +5,13 @@ export default function BaseLayout({className, pageTitle, children}) {
     <>
       <Head>
         <title>BeanPay - {pageTitle}</title>
-        <meta property="og:image" content="/logos/share-card.png" />
         <link rel="icon" href="/logos/logo.svg" />
+        <meta name="og:title" content={`BeanPay - ${pageTitle}`} />
+        <meta name="description" content="Bill Payment Tracker" />
+        <meta property="og:image" content="/logos/share-card.png" />
+        <meta property="twitter:image" content="/logos/share-card.png" />
+        <meta property="twitter:creator" content="@BrandonRRomano" />
+        <meta property="twitter:card" content="summary_large_image" />
       </Head>
       <div className={className}>
         {children}
