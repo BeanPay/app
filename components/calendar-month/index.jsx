@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import styles from './CalendarMonth.module.css'
-import BillpayCalendarDay from '../billpay-calendar-day'
+import CalendarDay from '../calendar-day'
 
 export default function CalendarMonth({className, month, year, bills}) {
   const firstWeekOffset = new Date(year + "-" + month + "-01").getDay();
@@ -9,12 +9,12 @@ export default function CalendarMonth({className, month, year, bills}) {
     <div className={classNames(styles.calendarMonth, className)}>
       {/* Plant all of the offset divs */}
       {Array(firstWeekOffset).fill().map((v, i)=>(
-        <BillpayCalendarDay key={i} day={0} />
+        <CalendarDay key={i} day={0} />
       ))}
 
       {/* Place all of the proper days */}
       {Array(numDaysInMonth).fill().map((v,i)=>(
-        <BillpayCalendarDay
+        <CalendarDay
           key={i+1}
           month={month}
           year={year}

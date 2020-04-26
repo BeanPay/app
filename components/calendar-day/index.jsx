@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import SVG from 'react-inlinesvg';
 import withOrdinalSuffix from '../../util/with-ordinal-suffix';
 import CheckIcon from './check.svg';
-import dayStyles from './BillpayCalendarDay.module.css';
+import dayStyles from './CalendarDay.module.css';
 import BillList from '../bill-list';
 import PopupPanel from '../../design-system/popup-panel';
 
-export default function BillpayCalendarDay({month, year, day, bills}) {
+export default function CalendarDay({month, year, day, bills}) {
   // Determine the dates relative reference to todays actual date
   var today = new Date();
   today.setHours(0,0,0,0);
@@ -53,7 +53,7 @@ export default function BillpayCalendarDay({month, year, day, bills}) {
           setPopupOpen(!popupOpen);
         }}
         className={classNames(
-          dayStyles.billpayCalendarDay,
+          dayStyles.calendarDay,
           {
             [dayStyles.offset]: isOffset,
             [dayStyles.isToday]: isToday,
