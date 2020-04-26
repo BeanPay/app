@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames'
 import styles from './BillpayList.module.css'
-import PopupMenu from '../popup-menu'
+import PopupMenu from '../../design-system/popup-menu'
 import { faExternalLinkAlt, faReceipt } from '@fortawesome/free-solid-svg-icons'
 
 export default function BillpayList({className, bills, isPast}) {
