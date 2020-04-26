@@ -1,10 +1,10 @@
 import DashboardLayout from '../layouts/dashboard-layout'
-import BillpayMonthPanel from '../components/billpay-month-panel'
+import CalendarMonthPanel from '../components/calendar-month-panel'
 
 export default function Bills() {
   return (
     <DashboardLayout pageTitle="Bills">
-      <BillpayMonthPanel
+      <CalendarMonthPanel
         month={4}
         year={2020}
         bills={[
@@ -45,7 +45,7 @@ export default function Bills() {
           },
         ]}
       />
-      <BillpayMonthPanel
+      <CalendarMonthPanel
         month={5}
         year={2020}
         bills={[
