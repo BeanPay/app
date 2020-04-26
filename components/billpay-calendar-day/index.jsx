@@ -6,7 +6,7 @@ import withOrdinalSuffix from '../../util/with-ordinal-suffix';
 import CheckIcon from './check.svg';
 import dayStyles from './BillpayCalendarDay.module.css';
 import BillpayList from '../billpay-list';
-import PopupPanel from '../popup-panel';
+import PopupPanel from '../../design-system/popup-panel';
 
 export default function BillpayCalendarDay({month, year, day, bills}) {
   // Determine the dates relative reference to todays actual date
