@@ -5,7 +5,7 @@ import SVG from 'react-inlinesvg';
 import withOrdinalSuffix from '../../util/with-ordinal-suffix';
 import CheckIcon from './check.svg';
 import dayStyles from './BillpayCalendarDay.module.css';
-import BillpayList from '../billpay-list';
+import BillList from '../bill-list';
 import PopupPanel from '../../design-system/popup-panel';
 
 export default function BillpayCalendarDay({month, year, day, bills}) {
@@ -81,7 +81,7 @@ export default function BillpayCalendarDay({month, year, day, bills}) {
             setPopupOpen(false);
           }}
         >
-          <BillpayList isPast={isPast} bills={bills} />
+          <BillList isPast={isPast} bills={bills} />
         </PopupPanel>
       )}
     </>

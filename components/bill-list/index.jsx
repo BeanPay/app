@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import classNames from 'classnames'
-import styles from './BillpayList.module.css'
+import styles from './BillList.module.css'
 import PopupMenu from '../../design-system/popup-menu'
 import { faExternalLinkAlt, faReceipt } from '@fortawesome/free-solid-svg-icons'
 
-export default function BillpayList({className, bills, isPast}) {
+export default function BillList({className, bills, isPast}) {
   const dueBills = bills.filter(bill => !bill.paid);
   const paidBills = bills.filter(bill => bill.paid);
   return (
-    <div className={classNames(styles.billpayList, className)}>
+    <div className={classNames(styles.billList, className)}>
       {dueBills.length > 0 && (
-        <BillCategoryList category={isPast ? 'overdue' : 'unpaid'} bills={dueBills} />
+        <BillListCategory category={isPast ? 'overdue' : 'unpaid'} bills={dueBills} />
       )}
       {paidBills.length > 0 && (
-        <BillCategoryList category="paid" bills={paidBills} />
+        <BillListCategory category="paid" bills={paidBills} />
       )}
     </div>
   )
 }
 
-function BillCategoryList({category, bills}) {
+function BillListCategory({category, bills}) {
   var categoryClass = null;
   switch(category) {
     case 'overdue':
@@ -34,11 +34,11 @@ function BillCategoryList({category, bills}) {
   }
 
   return (
-    <div className={styles.billCategoryList}>
+    <div className={styles.billListCategory}>
       <h5>{category}</h5>
       <ul className={categoryClass}>
         {bills.map(bill => (
-          <BillpayListItem
+          <BillListItem
             bill={bill}
           />
         ))}
@@ -47,7 +47,7 @@ function BillCategoryList({category, bills}) {
   )
 }
 
-function BillpayListItem({ bill }) {
+function BillListItem({ bill }) {
   const [active, setActive] = useState(false);
   return (
     <li
@@ -78,18 +78,29 @@ function BillpayListItem({ bill }) {
             }, 30);
           }}
           className={styles.popupMenu}
-          items={[
-            {
-              text: "Pay Bill",
-              onClick: () => console.log("Pay Bill Clicked"),
-              icon: faExternalLinkAlt,
-            },
-            {
-              text: "Mark as Paid",
-              onClick: () => console.log("Mark as Paid Clicked"),
-              icon: faReceipt,
-            }
-          ]}
+          items={bill.paid ?
+            [
+              {
+                text: "Mark as Unpaid",
+                onClick: () => console.log("Mark as Unpaid Clicked"),
+                icon: faReceipt,
+              },
+            ] :
+            [
+              {
+                text: "Pay Bill",
+                onClick: () => {
+                  window.open(bill.billpayURL, '_blank');
+                },
+                icon: faExternalLinkAlt,
+              },
+              {
+                text: "Mark as Paid",
+                onClick: () => console.log("Mark as Paid Clicked"),
+                icon: faReceipt,
+              }
+            ]
+          }
         />
       )}
     </li>

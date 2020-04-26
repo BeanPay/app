@@ -1,7 +1,7 @@
-.billpayList {
+.billList {
   width: 275px;
 
-  & .billCategoryList {
+  & .billListCategory {
 
     &:not(:last-child) {
       margin-bottom: 10px;
