@@ -1,7 +1,7 @@
 import styles from './BillSettingsPanel.module.css'
-import DashboardPanel from '../../design-system/dashboard-panel'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
-import withOrdinalSuffix from '../../util/with-ordinal-suffix'
+import DashboardPanel from '../../../design-system/dashboard-panel'
+import withOrdinalSuffix from '../../../util/with-ordinal-suffix'
 
 export default function BillSettingsPanel({ bill }) {
   return (
