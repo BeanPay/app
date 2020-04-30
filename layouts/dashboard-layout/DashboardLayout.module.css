@@ -3,8 +3,6 @@
   padding: 34px 24px;
 
   & .content {
-    display: flex;
-    flex-wrap: wrap;
     margin-left: 42px;
     width: 100%;
     max-width: 1200px;

@@ -1,17 +1,35 @@
 .panel {
   background: white;
-  padding: 0px 32px;
+  padding: 32px 32px;
   box-shadow: var(--shadow-large);
   border-radius: 10px;
 
   & > .header {
-    padding-top: 24px;
-    & > h3 {
-      margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    & .info {
+      flex-grow: 1;
+      & > h3 {
+        margin: 0;
+      }
+      & > p {
+        margin-top: 7px;
+        margin-bottom: 0px;
+      }
     }
-    & > p {
-      margin-top: 7px;
-      margin-bottom: 0px;
+    & > svg {
+      padding: 4px 8px;
+      height: 32px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    & .popupMenu {
+      position: absolute;
+      right: 0px;
+      top: 45px;
     }
   }
 
@@ -19,6 +37,6 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: 32px 0px;
+    padding-top: 24px;
   }
 }

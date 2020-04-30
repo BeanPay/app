@@ -2,8 +2,7 @@
   --gutter: 24px;
   display: inline-block;
   flex-grow: 1;
-  margin-right: var(--gutter);
-  margin-bottom: var(--gutter);
+  margin: calc(1/2 * var(--gutter));
 
   &.fullWidth {
     flex: 1 0 calc(100% - var(--gutter));

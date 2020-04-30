@@ -28,10 +28,13 @@ export default function PopupMenu({ className, items, onClose }) {
       className={classNames(styles.popupMenu, className)}
     >
       {items.map((item) => (
-        <li onClick={() => {
-          onClose();
-          item.onClick();
-        }}>
+        <li
+          key={item.text}
+          onClick={() => {
+            onClose();
+            item.onClick();
+          }
+        }>
           <FontAwesomeIcon icon={item.icon} />
           <span>{item.text}</span>
         </li>

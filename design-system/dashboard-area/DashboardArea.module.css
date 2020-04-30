@@ -1,0 +1,5 @@
+.dashboardArea {
+  margin: -12px;
+  display: flex;
+  flex-wrap: wrap;
+}

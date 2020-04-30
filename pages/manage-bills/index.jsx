@@ -1,12 +1,13 @@
 import DashboardLayout from '../../layouts/dashboard-layout'
-import DashboardPanel from '../../design-system/dashboard-panel'
+import DashboardSectionHeader from '../../design-system/dashboard-section-header'
+import BillSettingsList from '../../components/bill-settings-list'
+import BillFixtures from '../../fixtures/bills';
 
 export default function Settings() {
   return (
     <DashboardLayout pageTitle="Manage Bills">
-      <DashboardPanel title="Some Settings" minRowWeight={100}>
-        <h1>Hello settings</h1>
-      </DashboardPanel>
+      <DashboardSectionHeader title="Manage Bills" />
+      <BillSettingsList bills={BillFixtures} />
     </DashboardLayout>
   );
 }
