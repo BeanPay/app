@@ -5,12 +5,31 @@
   border-radius: 10px;
 
   & > .header {
-    & > h3 {
-      margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    & .info {
+      flex-grow: 1;
+      & > h3 {
+        margin: 0;
+      }
+      & > p {
+        margin-top: 7px;
+        margin-bottom: 0px;
+      }
     }
-    & > p {
-      margin-top: 7px;
-      margin-bottom: 0px;
+    & > svg {
+      padding: 4px 8px;
+      height: 32px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    & .popupMenu {
+      position: absolute;
+      right: 0px;
+      top: 45px;
     }
   }
 
