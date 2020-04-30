@@ -8,9 +8,11 @@ export default function Panel({className, title, description, children}) {
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
-      <div className={styles.content}>
-        {children}
-      </div>
+      {children && (
+        <div className={styles.content}>
+          {children}
+        </div>
+      )}
     </div>
   )
 }

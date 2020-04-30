@@ -1,11 +1,10 @@
 .panel {
   background: white;
-  padding: 0px 32px;
+  padding: 32px 32px;
   box-shadow: var(--shadow-large);
   border-radius: 10px;
 
   & > .header {
-    padding-top: 24px;
     & > h3 {
       margin: 0;
     }
@@ -19,6 +18,6 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: 32px 0px;
+    padding-top: 24px;
   }
 }
