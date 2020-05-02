@@ -1,0 +1,38 @@
+.addNewBill {
+  --gutter: 24px;
+  flex-grow: 1;
+  margin: calc(1/2 * var(--gutter));
+  flex: 1 0 calc(33.333% - var(--gutter));
+
+  border-radius: 12px;
+  border: 10px solid transparent;
+  border-image: url(/img/add-bill-border.svg) 7 round;
+
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 350px;
+
+  &:hover {
+    background: white;
+    box-shadow: var(--shadow-large);
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+  }
+
+  & .textWrapper {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+
+    & h3 {
+      margin: 4px 0;
+    }
+    & > svg {
+      margin-left: 12px;
+    }
+  }
+
+}
