@@ -1,0 +1,17 @@
+.fullscreenModal {
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(140, 140, 140, 0.65);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & > .panelWrapper {
+    margin-top: 20vh;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}

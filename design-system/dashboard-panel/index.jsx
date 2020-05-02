@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import Panel from '../panel'
 import styles from './DashboardPanel.module.css'
 
-export default function DashboardPanel({className, title, description, menuItems, children, minRowWeight}) {
+export default function DashboardPanel({className, minRowWeight, children, ...restProps}) {
   var minRowWeightClass = styles.fullWidth;
   switch (minRowWeight) {
     case 100:
@@ -25,9 +25,7 @@ export default function DashboardPanel({className, title, description, menuItems
         className,
         minRowWeightClass
       )}
-      menuItems={menuItems}
-      title={title}
-      description={description}
+      {...restProps}
     >
       {children}
     </Panel>

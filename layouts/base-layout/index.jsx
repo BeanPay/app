@@ -13,6 +13,7 @@ export default function BaseLayout({className, pageTitle, children}) {
         <meta property="twitter:creator" content="@BrandonRRomano" />
         <meta property="twitter:card" content="summary_large_image" />
       </Head>
+      <div id="modal-portal"/>
       <div className={className}>
         {children}
       </div>
