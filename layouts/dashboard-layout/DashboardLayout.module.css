@@ -1,6 +1,6 @@
 .dashboardLayout {
   display: flex;
-  padding: 34px 24px;
+  padding: 42px 32px;
 
   & .content {
     margin-left: 42px;
