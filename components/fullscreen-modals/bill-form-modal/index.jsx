@@ -20,15 +20,15 @@ function NewBillFormModal({ isOpen, onClose }) {
 
 function UpdateBillFormModal({ bill, isOpen, onClose }) {
   return (
-    <FullscreenModal title="New Bill" isOpen={isOpen} onClose={onClose}>
+    <FullscreenModal title={bill.name} isOpen={isOpen} onClose={onClose}>
       <BillForm
         newBill={false}
         initialValues={{
-          billName: "",
-          billPayURL: "",
-          frequency: "monthly",
-          firstDueDate: "",
-          estimatedTotalDue: "",
+          billName: bill.name,
+          billPayURL: bill.billpayURL,
+          frequency: bill.frequency,
+          firstDueDate: bill.firstDueDate,
+          estimatedTotalDue: bill.estimatedTotalDue,
         }}
       />
     </FullscreenModal>
