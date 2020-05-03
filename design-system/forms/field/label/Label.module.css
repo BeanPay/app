@@ -1,0 +1,17 @@
+.label {
+  font-family: var(--roboto);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--bluegray-4);
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 5px;
+
+  &.required {
+    &:after {
+      content: "*";
+      margin-left: 6px;
+    }
+  }
+}
