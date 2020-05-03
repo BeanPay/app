@@ -1,3 +1,11 @@
 .form {
+  & > * {
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
 
+    &:last-child {
+      margin-top: 24px;
+    }
+  }
 }
