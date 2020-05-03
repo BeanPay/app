@@ -8,9 +8,16 @@ import classNames from 'classnames';
  * This is only intended to be used directly from our Field wrapper,
  * as it automatically supports this system's strict usage of Labels.
  */
-export default function Label({children, className, ...restProps}) {
+export default function Label({children, className, required, ...restProps}) {
   return (
-    <label className={classNames(styles.label, className)} {...restProps}>
+    <label
+      className={classNames(
+        className,
+        styles.label,
+        { [styles.required]: required }
+      )}
+      {...restProps}
+    >
       {children}
     </label>
   )

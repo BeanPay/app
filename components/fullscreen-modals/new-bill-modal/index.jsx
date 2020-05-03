@@ -1,3 +1,4 @@
+import styles from './NewBillModal.module.css';
 import FullscreenModal from '../../../design-system/fullscreen-modal'
 import Button from '../../../design-system/button';
 import { Form, Field, SelectField } from '../../../design-system/forms';
@@ -5,31 +6,48 @@ import { Form, Field, SelectField } from '../../../design-system/forms';
 function NewBillForm() {
   return (
     <Form
-      initialValues={{ email: "", password: "" }}
+      initialValues={{
+        billName: "",
+        billPayURL: "",
+        frequency: "monthly",
+        firstDueDate: "",
+        estimatedTotalDue: "",
+      }}
+      className={styles.newBillModalForm}
       onSubmit={async values => {
         console.log(values);
       }}
     >
-      <Field label="Email" type="email" />
-      <Field label="Password" type="password" />
-
-      <SelectField
-        label="Bill Due Date"
-        options={[
-          { label: "1st", value: 1 },
-          { label: "2nd", value: 2 },
-          { label: "3rd", value: 3 },
-        ]}
-      />
-
-      <Button type="submit" size="large" text="Sign in" color="green"/>
+      <div className={styles.fieldGrid}>
+        <Field label="Bill Name" required />
+        <Field label="Bill pay URL" type="url" required />
+        <SelectField
+          className={styles.frequencyField}
+          label="Frequency"
+          options={[
+            { label: "Monthly", value: "monthly" },
+            { label: "Quarterly", value: "quarterly" },
+            { label: "Biannually", value: "biannually" },
+            { label: "Annually", value: "annually" },
+          ]}
+          required
+        />
+        <Field label="First Due Date" type="date" className={styles.firstDueDateField} required />
+        <Field
+          className={styles.estimatedTotalField}
+          label="Estimated Total Due"
+          type="number" min="0.00" step="0.01"
+          required
+        />
+      </div>
+      <Button type="submit" size="large" text="Create Bill" color="green"/>
     </Form>
   )
 }
 
 export default function NewBillModal({ isOpen, onClose }) {
   return (
-    <FullscreenModal title="New Bill" isOpen={isOpen} onClose={onClose}>
+    <FullscreenModal className={styles.newBillModal} title="New Bill" isOpen={isOpen} onClose={onClose}>
       <NewBillForm />
     </FullscreenModal>
   )

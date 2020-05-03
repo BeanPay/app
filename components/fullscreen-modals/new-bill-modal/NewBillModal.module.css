@@ -1,0 +1,26 @@
+.newBillModalForm {
+  max-width: 535px;
+
+  & .fieldGrid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+
+    & > * {
+      flex-grow: 1;
+      padding: 5px;
+    }
+  }
+
+  & .frequencyField {
+    width: 135px;
+  }
+
+  & .firstDueDateField {
+    width: 195px;
+  }
+
+  & .estimatedTotalField {
+    width: 175px;
+  }
+}

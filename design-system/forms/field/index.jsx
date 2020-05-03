@@ -7,13 +7,20 @@ import Label from './label';
  * Field is a light wrapper around a Formik field, which provides
  * some light sugar for ease of use.
  */
-export default function Field({id, className, name, label, type="text", children, ...restProps }) {
+export default function Field({id, className, name, label, type="text", children, required, ...restProps }) {
   const fieldName = name ? name : camelize(label);
   const fieldID = id ? id : camelize(label + " Field");
   return (
     <div className={classNames(styles.fieldWrapper, className)}>
-      <Label htmlFor={fieldID}>{label}</Label>
-      <FormikField className={styles.field} id={fieldID} name={fieldName} type={type} {...restProps}>
+      <Label htmlFor={fieldID} required={required}>{label}</Label>
+      <FormikField
+        id={fieldID}
+        className={styles.field}
+        name={fieldName}
+        type={type}
+        required={required}
+        {...restProps}
+      >
         { children }
       </FormikField>
     </div>

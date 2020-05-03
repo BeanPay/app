@@ -1,5 +1,6 @@
 .fieldWrapper {
   & .field {
+    height: 56px;
     font-family: var(--open-sans);
     font-weight: 400;
     font-size: 16px;
