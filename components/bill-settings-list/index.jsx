@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BillSettingsPanel from './bill-settings-panel';
 import AddNewBill from './add-new-bill';
-import NewBillModal from '../../components/fullscreen-modals/new-bill-modal';
+import { NewBillFormModal } from '../../components/fullscreen-modals/bill-form-modal';
 
 export default function BillSettingsList({ bills }) {
   const [newBillModalOpen, setNewBillModalOpen] = useState(false);
@@ -12,7 +12,7 @@ export default function BillSettingsList({ bills }) {
       ))}
       <AddNewBill onClick={() => setNewBillModalOpen(true)}/>
 
-      <NewBillModal
+      <NewBillFormModal
         isOpen={newBillModalOpen}
         onClose={() => setNewBillModalOpen(false)}
       />

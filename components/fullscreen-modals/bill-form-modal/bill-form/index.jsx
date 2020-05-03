@@ -1,19 +1,12 @@
-import styles from './NewBillModal.module.css';
-import FullscreenModal from '../../../design-system/fullscreen-modal'
-import Button from '../../../design-system/button';
-import { Form, Field, SelectField } from '../../../design-system/forms';
+import styles from './BillForm.module.css';
+import Button from '../../../../design-system/button';
+import { Form, Field, SelectField } from '../../../../design-system/forms';
 
-function NewBillForm() {
+export default function BillForm({ initialValues, newBill }) {
   return (
     <Form
-      initialValues={{
-        billName: "",
-        billPayURL: "",
-        frequency: "monthly",
-        firstDueDate: "",
-        estimatedTotalDue: "",
-      }}
-      className={styles.newBillModalForm}
+      initialValues={initialValues}
+      className={styles.billForm}
       onSubmit={async values => {
         console.log(values);
       }}
@@ -40,15 +33,11 @@ function NewBillForm() {
           required
         />
       </div>
-      <Button type="submit" size="large" text="Create Bill" color="green"/>
+      { newBill ? (
+        <Button type="submit" size="large" text="Create Bill" color="green"/>
+      ) : (
+        <Button type="submit" size="large" text="Update Bill" color="blue"/>
+      ) }
     </Form>
-  )
-}
-
-export default function NewBillModal({ isOpen, onClose }) {
-  return (
-    <FullscreenModal className={styles.newBillModal} title="New Bill" isOpen={isOpen} onClose={onClose}>
-      <NewBillForm />
-    </FullscreenModal>
   )
 }

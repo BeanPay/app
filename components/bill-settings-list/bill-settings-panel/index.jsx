@@ -8,7 +8,7 @@ export default function BillSettingsPanel({ bill }) {
     <DashboardPanel
       className={styles.billSettingsPanel}
       title={bill.name}
-      description={`$${bill.totalDue} due ${bill.frequency} on the ${withOrdinalSuffix(bill.dueDate)}`}
+      description={`$${bill.estimatedTotalDue} due ${bill.frequency} on the ${withOrdinalSuffix(bill.dueDate)}`}
       menuItems={[
         {
           text: "Edit Bill",
