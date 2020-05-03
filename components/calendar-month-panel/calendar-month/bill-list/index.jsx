@@ -23,7 +23,7 @@ function BillListCategory({category, bills}) {
       <h5>{category}</h5>
       <ul>
         {bills.map(bill => (
-          <BillListItem category={category} bill={bill} />
+          <BillListItem key={bill.name} category={category} bill={bill} />
         ))}
       </ul>
     </div>
