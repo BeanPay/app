@@ -7,9 +7,18 @@ function PopupPanel({title, onClose, style, popperAttributes, children}, popperR
   // Here we create an event listener to track if we click
   // outside of this component so we can trigger the onClose
   // that was passed into this PopupPanel.
+  //
+  // Additionally, the one exception to this is that if a user clicks
+  // within a modal.  When modals are open, we want to "pause" the state
+  // of the application behind, so clicking in the modal we don't want
+  // the close to trigger.
   const popupPanelRef = useRef(null);
+  const modalRef = useRef(document.getElementById('modal-portal'));
   const handleClick = (event) => {
-    if (popupPanelRef.current && !popupPanelRef.current.contains(event.target)) {
+    if (
+      popupPanelRef.current && !popupPanelRef.current.contains(event.target) &&
+      modalRef.current && !modalRef.current.contains(event.target)
+    ) {
       onClose();
     }
   }

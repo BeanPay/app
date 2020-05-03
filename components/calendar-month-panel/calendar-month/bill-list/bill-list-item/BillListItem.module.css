@@ -17,7 +17,7 @@ li.billListItem {
   }
 
   &:hover,
-  &.active {
+  &.popupMenuActive {
     box-shadow: var(--shadow-hover);
     cursor: pointer;
     position: relative;
