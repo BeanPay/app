@@ -1,0 +1,15 @@
+.selectField {
+  & select {
+    appearance: none;
+
+    /* Add an downward facing arrow */
+    background-image:
+      linear-gradient(45deg, transparent 50%, #4B4B4B 50%),
+      linear-gradient(135deg, #4B4B4B 50%, transparent 50%);
+    background-position:
+      calc(100% - 25px) calc(1em + 6px),
+      calc(100% - 16px) calc(1em + 6px);
+    background-size: 9px 10px, 9px 10px;
+    background-repeat: no-repeat;
+  }
+}

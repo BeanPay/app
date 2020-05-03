@@ -1,26 +1,29 @@
 import FullscreenModal from '../../../design-system/fullscreen-modal'
-import { Formik, Field, Form } from "formik";
 import Button from '../../../design-system/button';
+import { Form, Field, SelectField } from '../../../design-system/forms';
 
 function NewBillForm() {
   return (
-    <div>
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        onSubmit={async values => {
-          await new Promise(resolve => setTimeout(resolve, 500));
-          router.push("/")
-        }}
-      >
-        <Form>
-          <label htmlFor="email">Email</label>
-          <Field id="email" name="email" type="email" />
-          <label htmlFor="password">Password</label>
-          <Field id="password" name="password" type="password" />
-          <Button type="submit" size="large" text="Sign in" color="green"/>
-        </Form>
-      </Formik>
-    </div>
+    <Form
+      initialValues={{ email: "", password: "" }}
+      onSubmit={async values => {
+        console.log(values);
+      }}
+    >
+      <Field label="Email" type="email" />
+      <Field label="Password" type="password" />
+
+      <SelectField
+        label="Bill Due Date"
+        options={[
+          { label: "1st", value: 1 },
+          { label: "2nd", value: 2 },
+          { label: "3rd", value: 3 },
+        ]}
+      />
+
+      <Button type="submit" size="large" text="Sign in" color="green"/>
+    </Form>
   )
 }
 
