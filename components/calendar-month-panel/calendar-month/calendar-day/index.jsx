@@ -55,6 +55,7 @@ export default function CalendarDay({month, year, day, bills}) {
         className={classNames(
           dayStyles.calendarDay,
           {
+            [dayStyles.active]: popupOpen,
             [dayStyles.offset]: isOffset,
             [dayStyles.isToday]: isToday,
             [dayStyles.isPast]: isPast,
