@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import styles from './Button.module.css'
 
-export default function Button({type, size, color, text, onClick}) {
+export default function Button({size, color, text, ...restProps}) {
   // Determine Color
   var colorClass = styles.blue;
   switch (color) {
@@ -37,13 +37,12 @@ export default function Button({type, size, color, text, onClick}) {
   // Render
   return (
     <button
-      type={type}
       className={classNames(
         styles.button,
         colorClass,
         sizeClass
       )}
-      onClick={onClick}
+      {...restProps}
     >
       {text}
     </button>
