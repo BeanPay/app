@@ -1,0 +1,6 @@
+.errorMessage {
+  & p {
+    margin: 0;
+    color: var(--orange);
+  }
+}
