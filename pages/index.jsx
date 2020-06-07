@@ -6,12 +6,12 @@ export default function Bills() {
   return (
     <DashboardLayout pageTitle="Bills">
       <CalendarMonthPanel
-        month={4}
+        month={6}
         year={2020}
         bills={monthlyBills}
       />
       <CalendarMonthPanel
-        month={5}
+        month={7}
         year={2020}
         bills={monthlyBills}
       />
