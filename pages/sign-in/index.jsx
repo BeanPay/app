@@ -31,7 +31,7 @@ export default function SignIn() {
               .then(response => {
                 // Failed Login Attempt
                 if (response.status_code !== 200) {
-                  setSubmissionError("Invalid Email and Password Combination.")
+                  setSubmissionError("Invalid email and password combination")
                   return
                 }
 

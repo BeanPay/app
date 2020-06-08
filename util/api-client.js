@@ -1,5 +1,17 @@
 const baseURL = process.env.API_BASE_URL
 
+function register(email, password) {
+  return fetch(`${baseURL}/users`, {
+    method: 'POST',
+    credentials: 'include',
+    body: JSON.stringify({
+      email: email,
+      password: password
+    }),
+  })
+  .then(response => response.json())
+}
+
 function login(email, password) {
   return fetch(`${baseURL}/auth/login`, {
     method: 'POST',
@@ -31,7 +43,6 @@ function refreshAuth() {
   .then(responseBody => {
     // Automatically save the token
     if(responseBody.status_code == 200) {
-      console.log("REFRESH OK", responseBody)
       saveAccessToken({
         token: responseBody.result.access_token,
         expiration: responseBody.result.access_token_expiration,
@@ -55,38 +66,12 @@ function isAuthenticated() {
   return now < expiration;
 }
 
-/*
-if(authenticated, and we aren't expiring soon) {
-  resolve immediately (OK)
-}
-
-if(we have expired, or are expiring soon) {
-  if (we have a refresh token) {
-    refresh the auth
-      if OK resolve (OK)
-      if Not OK fail immedately (ERROR)
-  }
-  Fail immediately (ERROR)
-}
-
-
-
-if(!authenticated()) {
-  if(canRefresh() {
-    doTheRefresh
-  }
-  kickToLoginPage
-}
-
-
-*/
-
 export default {
   login,
+  register,
   refreshAuth,
   isAuthenticated
 }
-
 
 // --------------------------
 // ------ Data Store --------
