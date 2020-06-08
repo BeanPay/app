@@ -7,24 +7,12 @@ import { Formik } from "formik";
 import { Form, Field, ErrorMessage } from '../../design-system/forms'
 import Button from '../../design-system/button'
 import apiClient from '../../util/api-client'
+import ensureLoggedOut from '../../hooks/ensure-logged-out'
 
 export default function SignIn() {
   const router = useRouter()
   const [submissionError, setSubmissionError] = useState(null);
-
-  // Kick the user to the app if they are already logged in
-  useEffect(() => {
-    if(apiClient.isAuthenticated()) {
-      router.push("/")
-    } else {
-      apiClient.refreshAuth()
-        .then(response => {
-          if (response.status_code == 200) {
-            router.push("/")
-          }
-        })
-    }
-  });
+  useEffect(ensureLoggedOut(router))
 
   return (
     <BaseLayout pageTitle="Sign in">
