@@ -1,6 +1,16 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { useRouter } from 'next/router'
+import { useEffect } from 'react';
+import EnsureLoggedIn from '../../hooks/ensure-logged-in';
+import EnsureLoggedOut from '../../hooks/ensure-logged-out';
 
-export default function BaseLayout({className, pageTitle, children}) {
+export default function BaseLayout({className, pageTitle, authExpected=true, children}) {
+  const router = useRouter()
+  if(authExpected) {
+    useEffect(EnsureLoggedIn(router))
+  } else {
+    useEffect(EnsureLoggedOut(router))
+  }
   return (
     <>
       <Head>
