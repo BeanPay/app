@@ -2,6 +2,9 @@
 // This source was taken from the @next/mdx plugin source:
 // https://github.com/zeit/next.js/tree/canary/packages/next-mdx
 module.exports = {
+  env: {
+    API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  },
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.svg/,
