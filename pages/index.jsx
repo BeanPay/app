@@ -2,16 +2,16 @@ import DashboardLayout from '../layouts/dashboard-layout'
 import CalendarMonthPanel from '../components/calendar-month-panel'
 import { monthlyBills } from '../fixtures/bills'
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import apiClient from '../util/api-client'
+import pad from '../util/pad'
+import flattenMonthlyBills from '../util/flatten-monthly-bills'
 
-function pad(n, width, z) {
-  z = z || '0';
-  n = n + '';
-  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-}
 
 export default function Bills() {
+  const [firstPanelData, setFirstPanelData] = useState(null);
+  const [secondPanelData, setSecondPanelData] = useState(null);
+
   useEffect(() => {
     // Determine the Current Date
     var currentMonth = new Date().getMonth() + 1;
@@ -32,29 +32,34 @@ export default function Bills() {
       .then((resp) => {
         if (resp.status_code == 200) {
           allBills = resp.result;
-          console.log("Bills", allBills)
           return apiClient.authenticatedRequest(
             apiClient.getPayments(fromQuery, toQuery)
           )
         }
       })
       .then((resp) => {
-        console.log("Payments", resp.result)
+        if (resp.status_code == 200) {
+          allPayments = resp.result
+
+          // Calculate each month's state
+          setFirstPanelData({
+            month: currentMonth,
+            year: currentYear,
+            bills: flattenMonthlyBills(allBills, allPayments, currentMonth, currentYear)
+          })
+          setSecondPanelData({
+            month: currentMonth === 12 ? 1 : currentMonth + 1,
+            year: currentMonth === 12 ? currentYear + 1 : currentYear,
+            bills: flattenMonthlyBills(allBills, allPayments, currentMonth + 1, currentYear)
+          })
+        }
       })
-  })
+  }, [])
 
   return (
     <DashboardLayout pageTitle="Bills">
-      <CalendarMonthPanel
-        month={6}
-        year={2020}
-        bills={monthlyBills}
-      />
-      <CalendarMonthPanel
-        month={7}
-        year={2020}
-        bills={monthlyBills}
-      />
+      {firstPanelData && ( <CalendarMonthPanel {...firstPanelData} />)}
+      {secondPanelData && ( <CalendarMonthPanel {...secondPanelData} />)}
     </DashboardLayout>
   );
 }
