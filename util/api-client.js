@@ -1,5 +1,13 @@
 const baseURL = process.env.API_BASE_URL
 
+// Register a new user. This does not give an access
+// token / refresh token, so you must login after calling
+// this if it is intended to give the user a seamless
+// user creation experience.
+//
+// The reason why this is separated out is there may
+// be an additional step in the future between register /
+// first login that requires the user to verify their email.
 function register(email, password) {
   return fetch(`${baseURL}/users`, {
     method: 'POST',
@@ -12,6 +20,10 @@ function register(email, password) {
   .then(response => response.json())
 }
 
+
+// Login the user form their email & password.
+// If the login is successful, we automatically will
+// store the AccessToken in local storage.
 function login(email, password) {
   return fetch(`${baseURL}/auth/login`, {
     method: 'POST',
@@ -34,6 +46,9 @@ function login(email, password) {
   })
 }
 
+// Refresh our Auth from our refresh_token cookie.
+// If the refresh is successful, we automatically will
+// store the AccessToken in local storage.
 function refreshAuth() {
   return fetch(`${baseURL}/auth/refresh`, {
     method: 'POST',
@@ -73,9 +88,9 @@ export default {
   isAuthenticated
 }
 
-// --------------------------
-// ------ Data Store --------
-// --------------------------
+// ---------------------------------------
+// ------ Access Token Data Store --------
+// ---------------------------------------
 
 const ACCESS_TOKEN = "access_token";
 const ACCESS_TOKEN_EXPIRATION = "access_token_expiration";
