@@ -4,8 +4,9 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import DashboardPanel from '../../../design-system/dashboard-panel'
 import withOrdinalSuffix from '../../../util/with-ordinal-suffix'
 import { UpdateBillFormModal } from '../../../components/fullscreen-modals/bill-form-modal';
+import apiClient from '../../../util/api-client'
 
-export default function BillSettingsPanel({ bill }) {
+export default function BillSettingsPanel({ bill, updateState }) {
   const [editBillModalOpen, setEditBillModalOpen] = useState(false);
   const dueDate = parseInt(bill.first_due_date.substring(8, 10))
   return (
@@ -23,13 +24,21 @@ export default function BillSettingsPanel({ bill }) {
           {
             text: "Delete Bill",
             icon: faTrash,
-            onClick: () => console.log(`TODO: Delete Bill '${bill.id}'`)
+            onClick: () => {
+              apiClient.authenticatedRequest(apiClient.deleteBill(bill.id))
+                .then((res) => {
+                  if(res.status_code === 200) {
+                    updateState.billDeleted(bill.id)
+                  }
+                })
+            }
           },
         ]}
         minRowWeight={33}
       />
       <UpdateBillFormModal
         bill={bill}
+        updateState={updateState}
         isOpen={editBillModalOpen}
         onClose={() => setEditBillModalOpen(false)}
       />

@@ -107,7 +107,7 @@ function getPayments(from, to) {
   }
 }
 
-// Deletes a payment
+// Creates a payment
 function createPayment(billId, dueDate, totalPaid) {
   return function(accessToken) {
     return fetch(`${baseURL}/payments`, {
@@ -129,6 +129,59 @@ function createPayment(billId, dueDate, totalPaid) {
 function deletePayment(id) {
   return function(accessToken) {
     return fetch(`${baseURL}/payments/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+    })
+    .then(response => response.json())
+  }
+}
+
+// Creates a Bill
+function createBill(name, paymentURL, frequency, estimatedTotalDue, firstDueDate) {
+  return function(accessToken) {
+    return fetch(`${baseURL}/bills`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        payment_url: paymentURL,
+        frequency: frequency,
+        estimated_total_due: estimatedTotalDue,
+        first_due_date: firstDueDate,
+      }),
+    })
+    .then(response => response.json())
+  }
+}
+
+// Updates a Bill
+function updateBill(id, name, paymentURL, frequency, estimatedTotalDue, firstDueDate) {
+  return function(accessToken) {
+    return fetch(`${baseURL}/bills/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        payment_url: paymentURL,
+        frequency: frequency,
+        estimated_total_due: estimatedTotalDue,
+        first_due_date: firstDueDate,
+      }),
+    })
+    .then(response => response.json())
+  }
+}
+
+// Deletes a Bill
+function deleteBill(id) {
+  return function(accessToken) {
+    return fetch(`${baseURL}/bills/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
@@ -162,6 +215,9 @@ export default {
   getPayments,
   deletePayment,
   createPayment,
+  createBill,
+  updateBill,
+  deleteBill,
 }
 
 // ---------------------------------------
