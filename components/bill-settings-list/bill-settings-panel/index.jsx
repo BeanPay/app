@@ -7,12 +7,13 @@ import { UpdateBillFormModal } from '../../../components/fullscreen-modals/bill-
 
 export default function BillSettingsPanel({ bill }) {
   const [editBillModalOpen, setEditBillModalOpen] = useState(false);
+  const dueDate = parseInt(bill.first_due_date.substring(8, 10))
   return (
     <>
       <DashboardPanel
         className={styles.billSettingsPanel}
         title={bill.name}
-        description={`$${bill.estimatedTotalDue} due ${bill.frequency} on the ${withOrdinalSuffix(bill.dueDate)}`}
+        description={`$${bill.estimated_total_due} due ${bill.frequency} on the ${withOrdinalSuffix(dueDate)}`}
         menuItems={[
           {
             text: "Edit Bill",
@@ -22,7 +23,7 @@ export default function BillSettingsPanel({ bill }) {
           {
             text: "Delete Bill",
             icon: faTrash,
-            onClick: () => console.log(`TODO: Delete Bill '${bill.name}'`)
+            onClick: () => console.log(`TODO: Delete Bill '${bill.id}'`)
           },
         ]}
         minRowWeight={33}

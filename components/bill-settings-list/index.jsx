@@ -8,7 +8,7 @@ export default function BillSettingsList({ bills }) {
   return (
     <>
       {bills.map(bill => (
-        <BillSettingsPanel key={bill.name} bill={bill} />
+        <BillSettingsPanel key={bill.id} bill={bill} />
       ))}
       <AddNewBill onClick={() => setNewBillModalOpen(true)}/>
 
