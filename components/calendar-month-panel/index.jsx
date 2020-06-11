@@ -9,6 +9,10 @@ export default function CalendarMonthPanel({month, year}) {
   const [payments, setPayments] = useState(null);
   const monthName = new Date(year, month-1, 1).toLocaleString('default', { month: 'long' });
 
+  // Some updateState functions to pass down to children
+  const paymentDeleted = (id) => setPayments(payments.filter((payment) => payment.id != id))
+  const paymentCreated = (payment) => setPayments(payments.concat(payment))
+
   // Fetch the bills & payments for this month
   useEffect(() => {
     const fromQuery = `${year}-${pad(month, 2)}-01`;
@@ -37,6 +41,10 @@ export default function CalendarMonthPanel({month, year}) {
           className={styles.calendar}
           month={month}
           year={year}
+          updateState={{
+            paymentDeleted,
+            paymentCreated
+          }}
           bills={flattenBills(filterBills(bills, month, year), payments, month, year)}
         />
       }
