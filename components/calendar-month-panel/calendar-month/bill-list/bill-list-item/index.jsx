@@ -34,7 +34,7 @@ export default function BillListItem({ className, category, bill }) {
         )}
       >
         <p>{bill.name}</p>
-        <p>{`$${bill.totalDue}`}</p>
+        <p>{`$${bill.estimated_total_due}`}</p>
         { popupMenuActive && (
           <PopupMenu
             onClose={() => {
@@ -53,7 +53,7 @@ export default function BillListItem({ className, category, bill }) {
               }, 10);
             }}
             className={styles.popupMenu}
-            items={bill.paid ?
+            items={bill.payment != null ?
               [
                 {
                   text: "Mark as Unpaid",
@@ -65,7 +65,7 @@ export default function BillListItem({ className, category, bill }) {
                 {
                   text: "Pay Bill",
                   onClick: () => {
-                    window.open(bill.billpayURL, '_blank');
+                    window.open(bill.payment_url, '_blank');
                   },
                   icon: faExternalLinkAlt,
                 },

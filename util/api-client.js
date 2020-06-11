@@ -67,6 +67,48 @@ function refreshAuth() {
   })
 }
 
+// authenticatedRequest triggers a generic request function
+// as function(accessToken).  This will go through our
+// token refresh flow in the event the token has expired
+function authenticatedRequest(requestFunction) {
+  if(isAuthenticated()) {
+    const accessToken = getAccessToken()
+    return requestFunction(accessToken.token)
+  } else {
+    return refreshAuth()
+      .then(response => {
+        if (response.status_code == 200) {
+          return requestFunction(response.result.access_token)
+        }
+      })
+  }
+}
+
+function getBills(accessToken) {
+  return fetch(`${baseURL}/bills`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+    },
+    credentials: 'include'
+  })
+  .then(response => response.json())
+}
+
+// Gets all payments from (inclusive) to (exclusive)
+function getPayments(from, to) {
+  return function(accessToken) {
+    return fetch(`${baseURL}/payments?from=${from}&to=${to}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      credentials: 'include'
+    })
+    .then(response => response.json())
+  }
+}
+
 // Check to see if our token expires within the next 10 seconds
 // we'll consider that expired, as if we consider it still active
 // we run the risk of the proceeding request failing due to it expiring
@@ -85,7 +127,10 @@ export default {
   login,
   register,
   refreshAuth,
-  isAuthenticated
+  isAuthenticated,
+  authenticatedRequest,
+  getBills,
+  getPayments,
 }
 
 // ---------------------------------------

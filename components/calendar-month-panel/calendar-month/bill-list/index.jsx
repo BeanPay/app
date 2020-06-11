@@ -3,8 +3,8 @@ import styles from './BillList.module.css'
 import BillListItem from './bill-list-item'
 
 export default function BillList({className, bills, isPast}) {
-  const dueBills = bills.filter(bill => !bill.paid);
-  const paidBills = bills.filter(bill => bill.paid);
+  const dueBills = bills.filter(bill => bill.payment == null);
+  const paidBills = bills.filter(bill => bill.payment != null);
   return (
     <div className={classNames(styles.billList, className)}>
       {dueBills.length > 0 && (

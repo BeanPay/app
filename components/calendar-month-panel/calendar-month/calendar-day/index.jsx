@@ -25,8 +25,8 @@ export default function CalendarDay({month, year, day, bills}) {
   var billStatus = 'no-bills';
   if (bills != null) {
     for (const bill of bills) {
-      if(bill.paid != true) {
-        totalDue += bill.totalDue;
+      if(bill.payment == null) {
+        totalDue += bill.estimated_total_due;
         billStatus = 'due';
       } else {
         if(billStatus !== 'due') {
