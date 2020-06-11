@@ -90,7 +90,6 @@ function getBills(accessToken) {
     headers: {
       'Authorization': `Bearer ${accessToken}`,
     },
-    credentials: 'include'
   })
   .then(response => response.json())
 }
@@ -103,7 +102,37 @@ function getPayments(from, to) {
       headers: {
         'Authorization': `Bearer ${accessToken}`,
       },
-      credentials: 'include'
+    })
+    .then(response => response.json())
+  }
+}
+
+// Deletes a payment
+function createPayment(billId, dueDate, totalPaid) {
+  return function(accessToken) {
+    return fetch(`${baseURL}/payments`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        bill_id: billId,
+        due_date: dueDate,
+        total_paid: totalPaid,
+      }),
+    })
+    .then(response => response.json())
+  }
+}
+
+// Deletes a payment
+function deletePayment(id) {
+  return function(accessToken) {
+    return fetch(`${baseURL}/payments/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
     })
     .then(response => response.json())
   }
@@ -131,6 +160,8 @@ export default {
   authenticatedRequest,
   getBills,
   getPayments,
+  deletePayment,
+  createPayment,
 }
 
 // ---------------------------------------

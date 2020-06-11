@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import styles from './CalendarMonth.module.css'
 import CalendarDay from './calendar-day'
 
-export default function CalendarMonth({className, month, year, bills}) {
+export default function CalendarMonth({className, month, year, bills, updateState}) {
   const firstWeekOffset = new Date(year + "-" + month + "-01").getDay();
   const numDaysInMonth = new Date(year, month, 0).getDate();
   return (
@@ -20,6 +20,7 @@ export default function CalendarMonth({className, month, year, bills}) {
           year={year}
           day={i+1}
           bills={bills.filter(bill => parseInt(bill.due_date.substring(8, 10)) == i+1)}
+          updateState={updateState}
         />
       ))}
     </div>

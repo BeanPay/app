@@ -8,7 +8,7 @@ import dayStyles from './CalendarDay.module.css';
 import BillList from '../bill-list';
 import PopupPanel from '../../../../design-system/popup-panel';
 
-export default function CalendarDay({month, year, day, bills}) {
+export default function CalendarDay({month, year, day, bills, updateState}) {
   // Determine the dates relative reference to todays actual date
   var today = new Date();
   today.setHours(0,0,0,0);
@@ -82,7 +82,7 @@ export default function CalendarDay({month, year, day, bills}) {
             setPopupOpen(false);
           }}
         >
-          <BillList isPast={isPast} bills={bills} />
+          <BillList isPast={isPast} bills={bills} updateState={updateState} />
         </PopupPanel>
       )}
     </>

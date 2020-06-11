@@ -4,8 +4,9 @@ import classNames from 'classnames'
 import PopupMenu from '../../../../../design-system/popup-menu'
 import { faExternalLinkAlt, faReceipt } from '@fortawesome/free-solid-svg-icons'
 import PaymentFormModal from '../../../../fullscreen-modals/payment-form-modal';
+import apiClient from '../../../../../util/api-client'
 
-export default function BillListItem({ className, category, bill }) {
+export default function BillListItem({ className, category, bill, updateState }) {
   var categoryClass = null;
   switch(category) {
     case 'overdue':
@@ -34,7 +35,7 @@ export default function BillListItem({ className, category, bill }) {
         )}
       >
         <p>{bill.name}</p>
-        <p>{`$${bill.estimated_total_due}`}</p>
+        <p>{`$${bill.payment ? bill.payment.total_paid : bill.estimated_total_due}`}</p>
         { popupMenuActive && (
           <PopupMenu
             onClose={() => {
@@ -57,7 +58,14 @@ export default function BillListItem({ className, category, bill }) {
               [
                 {
                   text: "Mark as Unpaid",
-                  onClick: () => console.log("Mark as Unpaid Clicked"),
+                  onClick: () => {
+                    apiClient.authenticatedRequest(apiClient.deletePayment(bill.payment.id))
+                      .then((res) => {
+                        if(res.status_code === 200) {
+                          updateState.paymentDeleted(bill.payment.id)
+                        }
+                      })
+                  },
                   icon: faReceipt,
                 },
               ] :
@@ -82,6 +90,7 @@ export default function BillListItem({ className, category, bill }) {
       <PaymentFormModal
         bill={bill}
         isOpen={paymentModalOpen}
+        updateState={updateState}
         onClose={() => {
           /* Similar to above, put a small delay here to ensure that
            * the Modal is still in the DOM when the PopupPanel's click
