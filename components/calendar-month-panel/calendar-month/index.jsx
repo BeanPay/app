@@ -19,7 +19,7 @@ export default function CalendarMonth({className, month, year, bills}) {
           month={month}
           year={year}
           day={i+1}
-          bills={bills.filter(bill => bill.due_date == i+1)}
+          bills={bills.filter(bill => parseInt(bill.due_date.substring(8, 10)) == i+1)}
         />
       ))}
     </div>
