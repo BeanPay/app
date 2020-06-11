@@ -1,12 +1,10 @@
 import DashboardLayout from '../layouts/dashboard-layout'
 import CalendarMonthPanel from '../components/calendar-month-panel'
 import { monthlyBills } from '../fixtures/bills'
-
 import { useEffect, useState } from 'react';
 import apiClient from '../util/api-client'
 import pad from '../util/pad'
 import flattenMonthlyBills from '../util/flatten-monthly-bills'
-
 
 export default function Bills() {
   const [firstPanelData, setFirstPanelData] = useState(null);
@@ -41,17 +39,55 @@ export default function Bills() {
         if (resp.status_code == 200) {
           allPayments = resp.result
 
-          // Calculate each month's state
-          setFirstPanelData({
-            month: currentMonth,
-            year: currentYear,
-            bills: flattenMonthlyBills(allBills, allPayments, currentMonth, currentYear)
+          // Determine the bills for the surrounding months
+          var previousMonthBills = flattenMonthlyBills(
+            allBills,
+            allPayments,
+            currentMonth === 1 ? 12 : currentMonth - 1,
+            currentMonth === 1 ? currentYear - 1 : currentYear,
+          )
+          var currentMonthBills = flattenMonthlyBills(allBills, allPayments, currentMonth, currentYear)
+          var nextMonthBills = flattenMonthlyBills(
+            allBills,
+            allPayments,
+            currentMonth === 12 ? 1 : currentMonth + 1,
+            currentMonth === 12 ? currentYear + 1 : currentYear,
+          )
+
+          var hasOverdueBills = false;
+          previousMonthBills.forEach((bill) => {
+            if(bill.payment === null) {
+              hasOverdueBills = true;
+            }
           })
-          setSecondPanelData({
-            month: currentMonth === 12 ? 1 : currentMonth + 1,
-            year: currentMonth === 12 ? currentYear + 1 : currentYear,
-            bills: flattenMonthlyBills(allBills, allPayments, currentMonth + 1, currentYear)
-          })
+
+          // If we have overdue bills from the previous month, show the
+          // last month and the current month
+          if(hasOverdueBills) {
+            setFirstPanelData({
+              month: currentMonth === 1 ? 12 : currentMonth - 1,
+              year: currentMonth === 1 ? currentYear - 1 : currentYear,
+              bills: previousMonthBills
+            })
+            setSecondPanelData({
+              month: currentMonth,
+              year: currentYear,
+              bills: currentMonthBills
+            })
+          } else {
+            // If we've paid all of our bills last month, show the
+            // current month and next month.
+            setFirstPanelData({
+              month: currentMonth,
+              year: currentYear,
+              bills: currentMonthBills,
+            })
+            setSecondPanelData({
+              month: currentMonth === 12 ? 1 : currentMonth + 1,
+              year: currentMonth === 12 ? currentYear + 1 : currentYear,
+              bills: nextMonthBills
+            })
+          }
         }
       })
   }, [])
