@@ -11,7 +11,7 @@ export default function Field({id, className, name, label, type="text", children
   const fieldName = name ? name : camelize(label);
   const fieldID = id ? id : camelize(label + " Field");
   return (
-    <div className={classNames(styles.fieldWrapper, className)}>
+    <div className={classNames(styles.fieldWrapper, className, {[styles.hidden]: type === 'hidden'})}>
       <Label htmlFor={fieldID} required={required}>{label}</Label>
       <FormikField
         id={fieldID}
