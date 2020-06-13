@@ -18,7 +18,7 @@ export default function PaymentForm({ bill, updateState }) {
       }}
     >
       {({ isSubmitting }) => (
-        <Form>
+        <Form className={styles.paymentForm}>
           <Field label="Total Amount Paid" type="number" min="0.00" step="0.01" required />
           <Button type="submit" size="large" text="Mark as Paid" color="green" disabled={isSubmitting}/>
         </Form>

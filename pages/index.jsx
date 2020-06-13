@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import DashboardLayout from '../layouts/dashboard-layout'
 import CalendarMonthPanel from '../components/calendar-month-panel'
+import DashboardSectionHeader from '../design-system/dashboard-section-header'
 
 export default function Bills() {
   const [currentMonth, setCurrentMonth] = useState(null);
@@ -10,7 +11,8 @@ export default function Bills() {
     setCurrentYear(new Date().getFullYear())
   }, [])
   return (
-    <DashboardLayout pageTitle="Bills">
+    <DashboardLayout pageTitle="Bill Calendar">
+      <DashboardSectionHeader title="Bill Calendar" />
       { currentMonth && currentYear && (
         <>
           <CalendarMonthPanel

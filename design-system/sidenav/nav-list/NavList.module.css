@@ -62,4 +62,29 @@
       }
     }
   }
+
+  @media (max-width: 420px) {
+    & ul {
+      display: block;
+
+      & li {
+        padding: 16px 24px;
+        display: inline-block;
+        width: auto;
+
+        &:not(:last-child) {
+          margin-bottom: 0px;
+        }
+
+        & > .iconWrapper {
+          margin-right: 0px;
+          text-align: center;
+        }
+
+        & span {
+          display: none;
+        }
+      }
+    }
+  }
 }

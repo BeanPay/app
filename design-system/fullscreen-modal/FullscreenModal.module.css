@@ -13,5 +13,16 @@
     margin-top: 20vh;
     margin-left: 24px;
     margin-right: 24px;
+
+    @media (max-width: 420px) {
+      margin-top: 0px;
+      margin-left: 0px;
+      margin-right: 20px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 40px);
+      left: 50%;
+    }
   }
 }

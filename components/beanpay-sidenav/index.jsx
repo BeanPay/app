@@ -1,5 +1,5 @@
 import Sidenav from '../../design-system/sidenav'
-import { faHome, faCog } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default function BeanPaySidenav({activePath}) {
   return (
@@ -8,12 +8,12 @@ export default function BeanPaySidenav({activePath}) {
       logo="/logos/horizontal-lockup.svg"
       navItems={[
         {
-          icon: faHome,
-          name: 'Home',
+          icon: faCalendar,
+          name: 'Bill Calendar',
           url: '/',
         },
         {
-          icon: faCog,
+          icon: faMoneyCheckAlt,
           name: 'Manage Bills',
           url: '/manage-bills',
         },
