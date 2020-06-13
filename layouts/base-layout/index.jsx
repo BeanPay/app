@@ -52,11 +52,11 @@ export default function BaseLayout({className, pageTitle, authExpected=true, chi
         <title>BeanPay - {pageTitle}</title>
         <link rel="icon" href="/logos/logo.svg" />
         <meta name="og:title" content={`BeanPay - ${pageTitle}`} />
-        <meta name="description" content="Bill Payment Tracker" />
-        <meta property="og:image" content="/logos/share-card.png" />
-        <meta property="twitter:image" content="/logos/share-card.png" />
-        <meta property="twitter:creator" content="@BrandonRRomano" />
-        <meta property="twitter:card" content="summary_large_image" />
+        <meta name="description" content="A free and open source bill payment tracker for humans" />
+        <meta property="og:image" content="https://app.beanpay.org/logos/share-card.png" />
+        <meta name="twitter:image" content="https://app.beanpay.org/logos/share-card.png" />
+        <meta name="twitter:creator" content="@BrandonRRomano" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <div id="modal-portal"/>
       <div className={className}>
