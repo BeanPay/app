@@ -33,6 +33,7 @@ li.billListItem {
 
   & > .popupMenu {
     position: absolute;
-    right: -100px;
+    top: 32px;
+    right: 6px;
   }
 }

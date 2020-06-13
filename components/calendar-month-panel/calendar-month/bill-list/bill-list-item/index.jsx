@@ -54,7 +54,7 @@ export default function BillListItem({ className, category, bill, updateState })
               }, 10);
             }}
             className={styles.popupMenu}
-            items={bill.payment != null ?
+            items={bill.payment ?
               [
                 {
                   text: "Mark as Unpaid",
