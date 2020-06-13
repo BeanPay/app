@@ -1,0 +1,7 @@
+.baseLayout {
+  padding: 42px 32px;
+
+  @media (max-width: 420px) {
+    padding: 24px 16px;
+  }
+}

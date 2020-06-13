@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'
 import { useEffect } from 'react';
 import apiClient from '../../util/api-client'
+import styles from './BaseLayout.module.css'
+import classNames from 'classnames';
 
 function ensureLoggedOut(router, setAuthStatusVerified) {
   return () => {
@@ -59,7 +61,7 @@ export default function BaseLayout({className, pageTitle, authExpected=true, chi
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <div id="modal-portal"/>
-      <div className={className}>
+      <div className={classNames(styles.baseLayout, className)}>
         {authStatusVerified && (<>
           {children}
         </>)}
