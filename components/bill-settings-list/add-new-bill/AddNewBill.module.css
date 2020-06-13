@@ -8,7 +8,7 @@
   border: 10px solid transparent;
   border-image: url(/img/add-bill-border.svg) 7 round;
 
-  padding: 32px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;

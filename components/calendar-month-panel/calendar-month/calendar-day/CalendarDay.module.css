@@ -45,6 +45,10 @@
     &.totalDue{
       visibility: hidden;
       font-size: 15px;
+
+      @media (max-width: 420px) {
+        font-size: 11px;
+      }
     }
   }
 
@@ -59,7 +63,7 @@
         margin-right: auto;
         display: block;
         width: 42px;
-
+        max-width: 100%;
       }
     }
   }

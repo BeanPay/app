@@ -1,14 +1,15 @@
 .calendarMonth {
-  --day-size: 62px;
+  --day-size: 64px;
   --day-gutter: 8px;
+
   display: flex;
   flex-wrap: wrap;
-  width: calc(7 * (var(--day-size)) + (7 * var(--day-gutter)));
+  min-width: 290px;
   margin: calc(-1/2 * var(--day-gutter));
 
   & > div {
-    width: var(--day-size);
-    height: var(--day-size);
+    width: calc((100% / 7) - (2 * 1/2 * var(--day-gutter)));
     margin: calc(1/2 * var(--day-gutter));
+    height: 63px;
   }
 }

@@ -1,8 +1,12 @@
 .panel {
   background: white;
-  padding: 32px 32px;
+  padding: 28px;
   box-shadow: var(--shadow-large);
   border-radius: 10px;
+
+  @media (max-width: 420px) {
+    padding: 24px;
+  }
 
   & > .header {
     position: relative;
@@ -28,6 +32,7 @@
     }
 
     & .popupMenu {
+      z-index: 1;
       position: absolute;
       right: 0px;
       top: 45px;
