@@ -3,8 +3,9 @@ import styles from './CalendarMonth.module.css'
 import CalendarDay from './calendar-day'
 
 export default function CalendarMonth({className, month, year, bills, updateState}) {
-  const firstWeekOffset = new Date(year + "-" + month + "-01").getDay();
+  const firstWeekOffset = new Date(year + "-" + pad(String(month), 2) + "-01")
   const numDaysInMonth = new Date(year, month, 0).getDate();
+
   return (
     <div className={classNames(styles.calendarMonth, className)}>
       {/* Plant all of the offset divs */}
@@ -25,4 +26,11 @@ export default function CalendarMonth({className, month, year, bills, updateStat
       ))}
     </div>
   )
+}
+
+// A small utility function to pad strings with 0's
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
