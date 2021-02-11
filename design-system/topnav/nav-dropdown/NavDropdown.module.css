@@ -1,0 +1,33 @@
+.navDropdown { 
+  background-color: white;
+  box-shadow: var(--shadow-large);
+  position: absolute;
+  top: calc(100% + 1px);
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  display: flex;
+  padding: 1em .75em;
+  cursor: pointer;
+
+  & svg {
+    min-width: 18px;
+    height: auto;
+  } 
+
+  & h4 {
+    margin: auto .5em;
+  }
+
+  &:hover {
+    background-color: lightgrey;
+  }
+
+  &:hover h4 {
+    text-decoration: underline;
+  }
+}
+

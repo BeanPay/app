@@ -1,0 +1,49 @@
+.noNav {
+  display: none;
+}
+
+.mainNavDropdown {
+  left: 0;
+}
+
+.userNavDropdown {
+  right: 0;
+}
+
+
+/*  */
+.topNav {
+  padding: .5em;
+  position: relative;
+  box-shadow: var(--shadow-large);
+  & .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .userNavButton, & .mainNavButton {
+    cursor: pointer;
+    display: flex;
+
+    & svg:last-child {
+      margin-left: .5em;
+    }
+  }
+
+  & .mainNavButton {
+    border-right: 1px solid lightgrey;
+    padding-right: 2em;
+  }
+
+  & svg {
+    max-width: 100px;
+    width: 100px;
+    height: auto;
+  }
+
+  & img {
+    width: 32px;
+    height: auto;
+  }
+}
+

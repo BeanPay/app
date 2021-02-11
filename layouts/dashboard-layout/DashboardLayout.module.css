@@ -1,5 +1,6 @@
 .dashboardLayout {
   display: flex;
+  flex-direction: column;
 
   & .content {
     margin-left: 42px;
