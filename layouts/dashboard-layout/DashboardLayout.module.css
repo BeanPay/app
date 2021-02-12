@@ -3,10 +3,9 @@
   flex-direction: column;
 
   & .content {
-    margin-left: 42px;
     width: 100%;
     max-width: 1200px;
-    margin-top: 8px;
+    margin-top: 42px;
   }
 
   @media (max-width: 900px) {
