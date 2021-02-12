@@ -9,7 +9,7 @@ export default function NavDropdown({ className, navItems }){
       {
         navItems.map((navItem) => {
           return(
-            <li className={styles.navItem}  key={navItem.name} onClick={navItem.onClick}>
+            <li className={styles.navItem} key={navItem.name} onClick={navItem.onClick}>
               <FontAwesomeIcon icon={navItem.icon} />
               <h4>{navItem.name}</h4>
             </li>

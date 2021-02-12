@@ -1,11 +1,11 @@
 .navDropdown { 
   background-color: white;
-  box-shadow: var(--shadow-large);
-  position: absolute;
+  box-shadow: var(--shadow-small);
+  position: absolute; 
   top: calc(100% + 1px);
-  z-index: 1;
   padding: 0;
   margin: 0;
+  z-index: 1;
 }
 
 .navItem {
@@ -14,16 +14,16 @@
   cursor: pointer;
 
   & svg {
-    min-width: 18px;
+    width: 18px;
     height: auto;
-  } 
+  }
 
   & h4 {
     margin: auto .5em;
   }
 
   &:hover {
-    background-color: lightgrey;
+    background-color: var(--gray-5);
   }
 
   &:hover h4 {

@@ -1,10 +1,12 @@
 import TopNav from '../../design-system/topnav'
-import { faCalendar, faSmile, faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faSmile, faSignOutAlt, faMoneyCheckAlt, faUserEdit } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'next/router'
 
 export default function BeanpayTopnav(){
+  const router = useRouter()
 
   return(
-    <div className="Helloworld">
+    <>
       <TopNav
         logo='../../logos/horizontal-lockup.svg'
         userImg='../../img/user_account.svg'
@@ -13,41 +15,34 @@ export default function BeanpayTopnav(){
             icon: faCalendar,
             name: 'Bill Calendar',
             onClick: () => {
-              window.location.href = '/'
+              router.push('/')
             }
           },
           {
             icon: faMoneyCheckAlt,
             name: 'Manage Bills',
             onClick: () => {
-              window.location.href = '/manage-bills'
-            }
-          },
-          {
-            icon: faSmile,
-            name: 'Test Page',
-            onClick: () => {
-              window.location.href = '/test-page'
+              router.push('/manage-bills')
             }
           }
         ]}
         userNavItems={[
           {
-            icon: faCalendar,
+            icon: faUserEdit,
             name: 'Edit Profile',
             onClick: () => {
-              window.location.href = '/hello'
+              {/* todo - open page/modal to edit the user's profile */}
             }
           },
           {
-            icon: faCalendar,
+            icon: faSignOutAlt,
             name: 'Logout',
             onClick: () => {
-              window.location.href = '/smello'
+              {/* todo - log the user out */}
             }
-          }
+          },
         ]}
       />
-    </div>
+    </>
   )
 }
