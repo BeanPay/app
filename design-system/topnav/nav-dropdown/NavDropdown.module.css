@@ -1,33 +1,32 @@
-.navDropdown { 
+.navDropdown {
   background-color: white;
   box-shadow: var(--shadow-small);
-  position: absolute; 
-  top: calc(100% + 1px);
   padding: 0;
   margin: 0;
+  list-style: none;
+
+  /* TODO: remove - contextual to the placement of this box */
+  top: calc(100% + 1px);
+  position: absolute;
   z-index: 1;
-}
 
-.navItem {
-  display: flex;
-  padding: 1em .75em;
-  cursor: pointer;
+  & li {
+    /* TODO: copy styles similar to the dropdown list */
+    display: flex;
+    padding: 1em;
+    cursor: pointer;
 
-  & svg {
-    width: 18px;
-    height: auto;
-  }
+    & svg {
+      width: 18px;
+      height: auto;
+    }
 
-  & h4 {
-    margin: auto .5em;
-  }
+    & h4 {
+      margin: auto .5em;
+    }
 
-  &:hover {
-    background-color: var(--gray-5);
-  }
-
-  &:hover h4 {
-    text-decoration: underline;
+    &:hover {
+      background-color: var(--gray-5);
+    }
   }
 }
-
