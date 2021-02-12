@@ -11,10 +11,12 @@ export default function TopNav({logo, userImg, mainNavItems, userNavItems}){
   const [showMeMain, setShowMeMain] = useState(false)
   const [showMeUser, setShowMeUser] = useState(false)
 
+  // TODO:Inline this
   const handleMainClick = (e) => {
     setShowMeMain(!showMeMain)
   }
 
+  // TODO: Inline this
   const handleUserClick = (e) => {
     setShowMeUser(!showMeUser)
   }
