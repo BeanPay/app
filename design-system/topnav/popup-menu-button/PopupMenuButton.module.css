@@ -1,0 +1,12 @@
+.popupMenuButton {
+  display: flex;
+  cursor: pointer;
+
+  & img {
+    height: auto;
+  }
+
+  & svg {
+    margin: auto 1em;
+  }
+}

@@ -1,52 +1,45 @@
-import NavDropdown from './nav-dropdown'
 import styles from './TopNav.module.css'
 import SVG from 'react-inlinesvg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import classNames from 'classnames'
+import PopupMenu from '../popup-menu'
+import PopupMenuButton from './popup-menu-button'
 
-export default function TopNav({logo, userImg, mainNavItems, userNavItems}){
+export default function TopNav({logo, userImg, mainMenuItems, userMenuItems}){
 
-  const [showMeMain, setShowMeMain] = useState(false)
-  const [showMeUser, setShowMeUser] = useState(false)
-
-  // TODO:Inline this
-  const handleMainClick = (e) => {
-    setShowMeMain(!showMeMain)
-  }
-
-  // TODO: Inline this
-  const handleUserClick = (e) => {
-    setShowMeUser(!showMeUser)
-  }
+  const [showMain, setShowMain] = useState(false)
+  const [showUser, setShowUser] = useState(false)
 
   return(
     <nav className={styles.topNav} role="navigation">
 
-      <div className={styles.menuWrapper} onClick={handleMainClick}>
-        <div className={styles.buttonWrapper}>
-          <SVG src={logo}></SVG>
-          <FontAwesomeIcon icon={showMeMain?faCaretUp:faCaretDown} />
-        </div>
-        <NavDropdown
-          className={classNames(styles.mainNavDropdown, {
-            [styles.noNav]: !showMeMain,
+      <div className={styles.container}>
+        <PopupMenuButton
+          className={styles.logo}
+          logo={logo}
+          clickEvent={ (e) => {setShowMain(e) }}
+        />
+        <PopupMenu
+          className={classNames(styles.left, styles.menu, {
+            [styles.hide]: !showMain,
           })}
-          navItems={mainNavItems}
+          items={mainMenuItems}
+          onClose={()=>{}}
         />
       </div>
 
-      <div className={styles.menuWrapper} onClick={handleUserClick}>
-        <div className={styles.buttonWrapper}>
-          <img src={userImg} />
-          <FontAwesomeIcon icon={showMeUser?faCaretUp:faCaretDown} />
-        </div>
-        <NavDropdown
-          className={classNames(styles.userNavDropdown, {
-            [styles.noNav]: !showMeUser,
+      <div className={styles.container}>
+        <PopupMenuButton
+          className={styles.user}
+          logo={userImg}
+          clickEvent={(e)=>{setShowUser(e)}}
+        />
+        <PopupMenu
+          className={classNames(styles.right, styles.menu, {
+            [styles.hide]: !showUser,
           })}
-          navItems={userNavItems}
+          items={userMenuItems}
+          onClose={()=>{}}
         />
       </div>
 

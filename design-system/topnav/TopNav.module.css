@@ -1,53 +1,44 @@
-.noNav {
-  display: none;
-}
-
-.mainNavDropdown {
-  left: 0;
-}
-
-.userNavDropdown {
-  right: 0;
-}
-
 .topNav {
-  padding: .5em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   box-shadow: var(--shadow-large);
-  position: relative;
 
-  & .menuWrapper:first-child {
-    /*position: relative;*/
-    padding-right: 1em;
+  & .container {
+    position: relative;
+    padding: .5em;
+  }
+
+  & .container:first-child {
     border-right: 1px solid var(--gray-5);
   }
 
-  & .menuWrapper:first-child svg:last-child {
-    height: 22px;
-    width: auto;
-    margin: auto 0 auto 0.5em;
+  & .menu {
+    top: calc(100% + 1px);
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    min-width: 175px;
   }
 
-  & .buttonWrapper {
-    display: flex;
-    cursor: pointer;
+  & .left {
+    left: 0;
   }
 
-  & .buttonWrapper svg:last-child {
-    margin-left: .5em;
-    color: var(--gray-3);
+  & .right {
+    right: 0;
   }
 
-  & svg {
-    max-width: 120px;
+  & .hide {
+    display: none;
+  }
+
+  & .logo img {
     width: 120px;
-    height: auto;
   }
 
-  & img {
+  & .user img {
     width: 32px;
-    height: auto;
   }
 
 }

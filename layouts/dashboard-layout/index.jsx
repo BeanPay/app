@@ -8,14 +8,16 @@ import BaseLayout from '../base-layout'
 export default function DashboardLayout({className, pageTitle, children}) {
   const router = useRouter()
   return (
-    <BaseLayout pageTitle={pageTitle} authExpected={true} className={classNames(styles.dashboardLayout, className)}>
-    {/*<BeanPaySidenav activePath={router.pathname} />*/}
+    <>
       <BeanPayTopnav />
-      <div className={styles.content}>
-        <DashboardArea>
-          {children}
-        </DashboardArea>
-      </div>
-    </BaseLayout>
+      <BaseLayout pageTitle={pageTitle} authExpected={true} className={classNames(styles.dashboardLayout, className)}>
+    {/*<BeanPaySidenav activePath={router.pathname} />*/}
+        <div className={styles.content}>
+          <DashboardArea>
+            {children}
+          </DashboardArea>
+        </div>
+      </BaseLayout>
+    </>
   )
 }

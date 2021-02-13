@@ -10,33 +10,33 @@ export default function BeanpayTopnav(){
       <TopNav
         logo='../../logos/horizontal-lockup.svg'
         userImg='../../img/user_account.svg'
-        mainNavItems={[
+        mainMenuItems={[
           {
             icon: faCalendar,
-            name: 'Bill Calendar',
+            text: 'Bill Calendar',
             onClick: () => {
               router.push('/')
             }
           },
           {
             icon: faMoneyCheckAlt,
-            name: 'Manage Bills',
+            text: 'Manage Bills',
             onClick: () => {
               router.push('/manage-bills')
             }
           }
         ]}
-        userNavItems={[
+        userMenuItems={[
           {
             icon: faUserEdit,
-            name: 'Edit Profile',
+            text: 'Edit Profile',
             onClick: () => {
               {/* todo - open page/modal to edit the user's profile */}
             }
           },
           {
             icon: faSignOutAlt,
-            name: 'Logout',
+            text: 'Logout',
             onClick: () => {
               {/* todo - log the user out */}
             }
