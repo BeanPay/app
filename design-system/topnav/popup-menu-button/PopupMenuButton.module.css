@@ -1,12 +1,16 @@
 .popupMenuButton {
   display: flex;
+  justify-content: space-between;
   cursor: pointer;
+  padding-top: 1em;
+  padding-bottom: 1em;
 
   & img {
     height: auto;
   }
 
   & svg {
-    margin: auto 1em;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }

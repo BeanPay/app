@@ -6,7 +6,6 @@
 
   & .container {
     position: relative;
-    padding: .5em;
   }
 
   & .container:first-child {
@@ -33,12 +32,28 @@
     display: none;
   }
 
-  & .logo img {
-    width: 120px;
+  & .logo {
+    padding-left: 32px;
+
+    & img {
+      width: 130px;
+    }
+
+    & svg {
+      margin: auto 1em;
+    }
   }
 
-  & .user img {
-    width: 32px;
+  & .user {
+    padding-right: 32px;
+
+    & img {
+      width: 36px;
+    }
+
+    & svg {
+      margin-left: .5em;
+    }
   }
 
 }
