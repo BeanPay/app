@@ -2,10 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--shadow-large);
-
+  z-index: 2;
+  box-shadow: 0px 0px 8px 0px var(--gray-5);
   & .container {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
   }
 
   & .container:first-child {
@@ -28,19 +31,15 @@
     right: 0;
   }
 
-  & .hide {
-    display: none;
-  }
-
   & .logo {
     padding-left: 32px;
 
     & img {
-      width: 130px;
+      width: 140px;
     }
 
     & svg {
-      margin: auto 1em;
+      margin: auto 16px;
     }
   }
 
@@ -48,11 +47,11 @@
     padding-right: 32px;
 
     & img {
-      width: 36px;
+      width: 34px;
     }
 
     & svg {
-      margin-left: .5em;
+      margin-left: 8px;
     }
   }
 
