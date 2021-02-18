@@ -5,6 +5,8 @@ import classNames from 'classnames'
 import PopupMenu from '../popup-menu'
 import PopupMenuButton from './popup-menu-button'
 
+
+
 export default function TopNav({logo, userImg, mainMenuItems, userMenuItems}){
 
   const [showMain, setShowMain] = useState(false)
@@ -17,32 +19,45 @@ export default function TopNav({logo, userImg, mainMenuItems, userMenuItems}){
         <PopupMenuButton
           className={styles.logo}
           logo={logo}
-          clickEvent={ (e) => {setShowMain(e) }}
+          isOpen={showMain}
+          onClick={(e) => {
+            setShowMain(!showMain)
+          }}
         />
-        <PopupMenu
-          className={classNames(styles.left, styles.menu, {
-            [styles.hide]: !showMain,
-          })}
-          items={mainMenuItems}
-          onClose={()=>{}}
-        />
+        {showMain &&
+          (<PopupMenu
+            className={classNames(styles.left, styles.menu)}
+            items={mainMenuItems}
+            onClose={()=>{
+              setTimeout(() =>{
+                setShowMain(false);
+              }, 10)
+            }}
+          />)
+        }
       </div>
 
       <div className={styles.container}>
         <PopupMenuButton
           className={styles.user}
           logo={userImg}
-          clickEvent={(e)=>{setShowUser(e)}}
+          isOpen={showUser}
+          onClick={(e) => {
+            setShowUser(!showUser)
+          }}
         />
-        <PopupMenu
-          className={classNames(styles.right, styles.menu, {
-            [styles.hide]: !showUser,
-          })}
-          items={userMenuItems}
-          onClose={()=>{}}
-        />
+        {showUser &&
+          (<PopupMenu
+            className={classNames(styles.right, styles.menu)}
+            items={userMenuItems}
+            onClose={()=>{
+              setTimeout(() =>{
+                setShowUser(false);
+              }, 10)
+            }}
+          />)
+        }
       </div>
-
     </nav>
   )
 }
