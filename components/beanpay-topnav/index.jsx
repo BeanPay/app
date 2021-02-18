@@ -1,6 +1,7 @@
 import TopNav from '../../design-system/topnav'
 import { faCalendar, faSmile, faSignOutAlt, faMoneyCheckAlt, faUserEdit } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
+import apiClient from '../../util/api-client'
 
 export default function BeanpayTopnav(){
   const router = useRouter()
@@ -28,17 +29,11 @@ export default function BeanpayTopnav(){
         ]}
         userMenuItems={[
           {
-            icon: faUserEdit,
-            text: 'Edit Profile',
-            onClick: () => {
-              {/* todo - open page/modal to edit the user's profile */}
-            }
-          },
-          {
             icon: faSignOutAlt,
             text: 'Logout',
-            onClick: () => {
-              {/* todo - log the user out */}
+            onClick: async () => {
+              await apiClient.logout();
+              router.push('/sign-in');
             }
           },
         ]}
