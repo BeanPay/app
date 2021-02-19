@@ -1,11 +1,8 @@
 import styles from './TopNav.module.css'
-import SVG from 'react-inlinesvg'
 import { useState } from 'react'
 import classNames from 'classnames'
 import PopupMenu from '../popup-menu'
 import PopupMenuButton from './popup-menu-button'
-
-
 
 export default function TopNav({logo, userImg, mainMenuItems, userMenuItems}){
 
@@ -13,50 +10,36 @@ export default function TopNav({logo, userImg, mainMenuItems, userMenuItems}){
   const [showUser, setShowUser] = useState(false)
 
   return(
-    <nav className={styles.topNav} role="navigation">
-
+    <nav className={styles.topNav}>
       <div className={styles.container}>
         <PopupMenuButton
-          className={styles.logo}
+          className={styles.logoMenuButton}
           logo={logo}
           isOpen={showMain}
-          onClick={(e) => {
-            setShowMain(!showMain)
-          }}
+          onClick={() => {setShowMain(!showMain)}}
         />
-        {showMain &&
-          (<PopupMenu
-            className={classNames(styles.left, styles.menu)}
+        { showMain && (
+          <PopupMenu
+            className={classNames(styles.left, styles.popUpMenu)}
             items={mainMenuItems}
-            onClose={()=>{
-              setTimeout(() =>{
-                setShowMain(false);
-              }, 10)
-            }}
-          />)
-        }
+            onClose={() => {setShowMain(false)}}
+          />
+        )}
       </div>
-
       <div className={styles.container}>
         <PopupMenuButton
-          className={styles.user}
+          className={styles.userMenuButton}
           logo={userImg}
           isOpen={showUser}
-          onClick={(e) => {
-            setShowUser(!showUser)
-          }}
+          onClick={() => {setShowUser(!showUser)}}
         />
-        {showUser &&
-          (<PopupMenu
-            className={classNames(styles.right, styles.menu)}
+        { showUser && (
+          <PopupMenu
+            className={classNames(styles.right, styles.popUpMenu)}
             items={userMenuItems}
-            onClose={()=>{
-              setTimeout(() =>{
-                setShowUser(false);
-              }, 10)
-            }}
-          />)
-        }
+            onClose={() => {setShowUser(false)}}
+          />
+        )}
       </div>
     </nav>
   )

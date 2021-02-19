@@ -12,32 +12,21 @@
 
   & .container:first-child {
     border-right: 1px solid var(--gray-5);
-
-    & li {
-      padding-left: 32px;
-    }
   }
 
-  & .container:last-child li {
-    padding-right: 32px;
-  }
-
-  & .menu {
+  & .popUpMenu {
     top: calc(100% + 1px);
     position: absolute;
     width: 100%;
     min-width: 175px;
+
+    & li {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
-  & .left {
-    left: 0;
-  }
-
-  & .right {
-    right: 0;
-  }
-
-  & .logo {
+  & .logoMenuButton {
     padding-left: 32px;
 
     & img {
@@ -49,7 +38,7 @@
     }
   }
 
-  & .user {
+  & .userMenuButton {
     padding-right: 32px;
 
     & img {
@@ -59,6 +48,14 @@
     & svg {
       margin-left: 8px;
     }
+  }
+
+  & .left {
+    left: 0;
+  }
+
+  & .right {
+    right: 0;
   }
 
 }
