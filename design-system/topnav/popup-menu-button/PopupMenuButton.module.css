@@ -12,5 +12,6 @@
   & svg {
     margin-top: auto;
     margin-bottom: auto;
+    color: var(--gray-3);
   }
 }

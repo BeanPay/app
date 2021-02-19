@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--shadow-small);
+  box-shadow: var(--shadow-large);
+  background: white;
 
   & .container {
     position: relative;
@@ -11,19 +12,15 @@
   }
 
   & .container:first-child {
-    border-right: 1px solid var(--gray-5);
+    border-right: 1px solid var(--bluegray-6);
   }
 
   & .popUpMenu {
-    top: calc(100% + 1px);
     position: absolute;
+    top: calc(100% + 1px);
     width: 100%;
     min-width: 175px;
-
-    & li {
-      padding-left: 32px;
-      padding-right: 32px;
-    }
+    box-shadow: var(--shadow-large-no-top);
   }
 
   & .logoMenuButton {
@@ -52,10 +49,18 @@
 
   & .left {
     left: 0;
+
+    & li {
+      padding-left: 32px;
+    }
   }
 
   & .right {
     right: 0;
+
+    & li {
+      padding-right: 32px;
+    }
   }
 
 }
