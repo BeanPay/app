@@ -1,0 +1,65 @@
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-large);
+  background: white;
+
+  & .container {
+    position: relative;
+  }
+
+  & .container:first-child {
+    border-right: 1px solid var(--bluegray-6);
+  }
+
+  & .popUpMenu {
+    position: absolute;
+    top: calc(100% + 1px);
+    width: 100%;
+    min-width: 175px;
+    box-shadow: var(--shadow-large-no-top);
+  }
+
+  & .logoMenuButton {
+    padding-left: 32px;
+
+    & img {
+      width: 140px;
+    }
+
+    & svg {
+      margin: auto 16px;
+    }
+  }
+
+  & .userMenuButton {
+    padding-right: 32px;
+
+    & img {
+      width: 34px;
+    }
+
+    & svg {
+      margin-left: 8px;
+    }
+  }
+
+  & .left {
+    left: 0;
+
+    & li {
+      padding-left: 32px;
+    }
+  }
+
+  & .right {
+    right: 0;
+
+    & li {
+      padding-right: 32px;
+    }
+  }
+
+}
+

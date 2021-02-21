@@ -46,6 +46,27 @@ function login(email, password) {
   })
 }
 
+function logout() {
+  //Hit logout endpoint
+  return fetch(`${baseURL}/auth/logout`, {
+    method: 'POST',
+    credentials: 'include'
+  })
+
+  .then(response => response.json())
+  .then(responseBody => {
+
+    //Check response code
+    if(responseBody.status_code === 200){
+
+      //Server should have expired the refresh cookie at this point
+      //Removes the access tokens saved in localStorage
+      removeAccessToken();
+    }
+  })
+}
+
+
 // Refresh our Auth from our refresh_token cookie.
 // If the refresh is successful, we automatically will
 // store the AccessToken in local storage.
@@ -207,6 +228,7 @@ function isAuthenticated() {
 
 export default {
   login,
+  logout,
   register,
   refreshAuth,
   isAuthenticated,
@@ -242,4 +264,9 @@ function getAccessToken() {
     }
   }
   return null
+}
+
+function removeAccessToken() {
+  window.localStorage.removeItem(ACCESS_TOKEN);
+  window.localStorage.removeItem(ACCESS_TOKEN_EXPIRATION);
 }
