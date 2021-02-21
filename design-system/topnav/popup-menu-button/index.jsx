@@ -1,6 +1,5 @@
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
 import styles from './PopupMenuButton.module.css'
 import classNames from 'classnames'
 
